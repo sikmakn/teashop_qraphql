@@ -24,11 +24,11 @@ const DiscountPreviewCard: React.FC<DiscordPreviewCardParams> =
         <a href={`./${id}`} className={styles.cardContainer}>
             <img src={imgSrc} alt={description}/>
             <div>
-                <span className={styles.price}>{price}р</span>/<span>{weight}</span>
-                <span className={styles.oldPrice}>{oldPrice}</span>
-                <span className={styles.discountPercentage}>{discountPercentage}</span>
+                <span className={styles.price}>{price}р</span> / <span>{weight}гр</span>
+                <span className={styles.oldPrice}>{oldPrice}р</span>
+                <span className={styles.discountPercentage}>-{discountPercentage}%</span>
             </div>
-            <span>{description}</span>
+            <span className={styles.description}>{description}</span>
         </a>
     );
 

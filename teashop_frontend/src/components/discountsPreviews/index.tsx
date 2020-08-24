@@ -6,7 +6,16 @@ const DiscountPreview:React.FC = ()=>{
     const discountTeas = [
         {
             id:'id',
-            imgSrc: '',
+            imgSrc: './photo.jpg',
+            oldPrice: 220,
+            discountPercentage: 45,
+            description: 'Да Хун Пао Шу Сян scfsdfsd fdefw ewfew saasssf fewfыф ef wef wefwe f wefwe fwef wefwefwefwefwef',
+            price: 160,
+            weight: 100,
+        },
+        {
+            id:'id2',
+            imgSrc: './photo.jpg',
             oldPrice: 220,
             discountPercentage: 45,
             description: 'Да Хун Пао Шу Сян',
@@ -14,17 +23,8 @@ const DiscountPreview:React.FC = ()=>{
             weight: 100,
         },
         {
-            id:'id',
-            imgSrc: '',
-            oldPrice: 220,
-            discountPercentage: 45,
-            description: 'Да Хун Пао Шу Сян',
-            price: 160,
-            weight: 100,
-        },
-        {
-            id:'id',
-            imgSrc: '',
+            id:'id3',
+            imgSrc: './photo.jpg',
             oldPrice: 220,
             discountPercentage: 45,
             description: 'Да Хун Пао Шу Сян',

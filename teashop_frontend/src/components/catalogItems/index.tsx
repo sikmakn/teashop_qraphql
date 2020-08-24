@@ -15,7 +15,7 @@ const CatalogItems: React.FC = () => {
             ]
         },
         {
-            id: 'id',
+            id: 'id2',
             name: 'Пуэр',
             subspecies: [
                 {
@@ -25,7 +25,7 @@ const CatalogItems: React.FC = () => {
             ]
         },
         {
-            id: 'id',
+            id: 'id3',
             name: 'Хэй Ча(черный)',
             subspecies: []
         }
@@ -36,7 +36,7 @@ const CatalogItems: React.FC = () => {
     };
 
     return (
-        <>
+        <div className={styles.itemsContainer}>
             <div className={styles.catalogContainer}>
                 {items.map(({name, id}, i) => (
                     checkedIndex === i ?
@@ -48,7 +48,7 @@ const CatalogItems: React.FC = () => {
                 {items[checkedIndex].subspecies.map(({name, id}) =>
                     <a href={`./${id}`} key={id}>{name}</a>)}
             </div>
-        </>
+        </div>
     );
 };
 

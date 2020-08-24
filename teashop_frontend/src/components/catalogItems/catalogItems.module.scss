@@ -1,0 +1,33 @@
+@import "src/colors.scss";
+
+.itemsContainer {
+  display: flex;
+
+  .catalogContainer {
+    width: 265px;
+    cursor: pointer;
+    margin-bottom: 40px;
+
+    > div {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .checkedItem {
+      color: $yellow1;
+    }
+  }
+
+  .subspeciesContainer {
+    width: 260px;
+    margin-right: 20px;
+
+    a {
+      text-decoration: none;
+      color: $grey1;
+    }
+  }
+}

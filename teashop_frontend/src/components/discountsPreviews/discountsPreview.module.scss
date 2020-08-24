@@ -1,3 +1,11 @@
-.discountPreviewContainer{
+.discountPreviewContainer {
   display: flex;
+
+  > a {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
