@@ -1,0 +1,54 @@
+@import "src/colors.scss";
+
+header {
+  height: 100px;
+  font-size: 16px;
+  box-shadow: 0 3px 84px 0 rgba(0, 0, 0, 0.07);
+  z-index: 28;
+
+  > div {
+    height: 100%;
+    width: 1260px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    .logo {
+      width: 198px;
+      height: 41px;
+      margin-right: 32px;
+    }
+
+    .catalog {
+      display: flex;
+      margin-right: 65px;
+
+      img {
+        width: 22px;
+        height: 15px;
+        margin-right: 14px;
+      }
+    }
+
+    .phone {
+      font-weight: bold;
+      margin-right: 30px;
+    }
+
+    .workTime {
+      color: $grey1;
+      margin-right: 67px;
+    }
+
+    .delivery {
+      color: #000000;
+      text-decoration: none;
+      margin-right: 66px;
+    }
+
+    .search{
+      margin-right: 66px;
+    }
+  }
+}
+
