@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './discountsPreview.module.scss';
-import DiscountPreviewCard from "../discountPreviewCard";
+import TeaCard from "../teaCard";
 
-const DiscountPreview:React.FC = ()=>{
+const DiscountPreview: React.FC = () => {
     const discountTeas = [
         {
-            id:'id',
+            _id: 'id',
             imgSrc: './photo.jpg',
             oldPrice: 220,
             discountPercentage: 45,
@@ -14,7 +14,7 @@ const DiscountPreview:React.FC = ()=>{
             weight: 100,
         },
         {
-            id:'id2',
+            _id: 'id2',
             imgSrc: './photo.jpg',
             oldPrice: 220,
             discountPercentage: 45,
@@ -23,18 +23,18 @@ const DiscountPreview:React.FC = ()=>{
             weight: 100,
         },
         {
-            id:'id3',
+            _id: 'id3',
             imgSrc: './photo.jpg',
             oldPrice: 220,
             discountPercentage: 45,
             description: 'Да Хун Пао Шу Сян',
             price: 160,
             weight: 100,
-        }
+        },
     ];
     return (
         <div className={styles.discountPreviewContainer}>
-            {discountTeas.map(params=> <DiscountPreviewCard  {...params}/>)}
+            {discountTeas.map(params => <TeaCard  {...params}/>)}
         </div>
     );
 };

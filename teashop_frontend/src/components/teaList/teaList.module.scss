@@ -1,4 +1,31 @@
-.teaListContainer{
-  display: flex;
+@import './src/colors.scss';
+
+.teaListContainer {
   width: 100%;
+  margin-top: 50px;
+
+  .teaName{
+    margin-bottom: 27px;
+
+    .listName{
+      font-size: 26px;
+      font-weight: 600;
+    }
+    .count{
+      margin-left: 5px;
+      font-size: 16px;
+      color: $grey2;
+    }
+
+    a{
+      margin-left: 19px;
+      text-decoration: none;
+      color: $violet1;
+    }
+  }
+
+  .cardContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 }
