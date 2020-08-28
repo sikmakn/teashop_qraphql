@@ -1,0 +1,82 @@
+@import "./src/colors.scss";
+
+footer {
+  margin-top: 57px;
+  min-height: 186px;
+  height: 186px;
+  background: $grey3;
+  width: 100%;
+
+  .footerContainer {
+    width: 1260px;
+    margin: 0 auto;
+    padding-top: 56px;
+    display: flex;
+
+    span {
+      margin-bottom: 18px;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .addressContainer {
+      display: flex;
+      flex-direction: column;
+      width: 240px;
+      font-size: 16px;
+      margin-right: 75px;
+
+      .metro {
+        color: $grey2;
+      }
+    }
+
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      margin-right: 74px;
+
+      a {
+        margin-bottom: 18px;
+      }
+    }
+
+    .info {
+      width: 607px;
+      white-space: normal;
+      color: $grey2;
+      line-height: 30px;
+    }
+
+    .socials {
+      margin-left: 63px;
+
+      span {
+        mask-position: center;
+        mask-repeat: no-repeat;
+        display: block;
+        width: 24px;
+        height: 17px;
+        background: $grey2;
+
+        &:hover{
+          background: #000000;
+        }
+      }
+
+      .vk {
+        mask-image: url("/vk.svg");
+        mask-size: 24px 17px;
+      }
+
+      .facebook {
+        mask-image: url("/facebook.svg");
+      }
+
+      .instagram {
+        mask-size: 15px 15px;
+        mask-image: url("/instagram.svg");
+      }
+    }
+  }
+}

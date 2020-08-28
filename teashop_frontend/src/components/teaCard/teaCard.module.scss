@@ -1,0 +1,56 @@
+.cardContainer {
+  text-decoration: none;
+  color: #000000;
+  height: 300px;
+
+  > img {
+    object-fit: cover;
+    background-position: center;
+    width: 100%;
+    height: 217px;
+    margin: 0;
+  }
+
+  .commonInfoContainer {
+    margin: 19px 0;
+
+    .price {
+      font-weight: bold;
+    }
+
+    .oldPrice {
+      margin-left: 16px;
+    }
+
+    .discountPercentage {
+      margin-left: 16px;
+      color: #ff0000;
+    }
+
+    a {
+      margin-left: 17px;
+
+      img {
+        width: 18px;
+        height: 17px;
+      }
+    }
+
+  }
+
+  .description {
+    padding: 0;
+    overflow: hidden;
+    max-height: 45px;
+    height: 45px;
+
+    div {
+      -moz-column-width: 217px;
+      -webkit-column-width: 217px;
+      column-width: 217px;
+      height: 100%;
+      text-overflow: ellipsis;
+      line-height: 22px;
+    }
+  }
+}

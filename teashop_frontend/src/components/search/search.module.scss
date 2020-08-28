@@ -1,0 +1,11 @@
+@import "src/colors.scss";
+
+.search{
+  color: $grey2;
+  width: 175px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid $grey1;
+  padding-bottom: 13px;
+  margin-bottom: -13px;
+}

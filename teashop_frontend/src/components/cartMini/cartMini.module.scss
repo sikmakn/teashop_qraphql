@@ -1,0 +1,16 @@
+.cartMini {
+  text-decoration: none;
+  color: #000000;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 18px;
+    height: 17px;
+    margin-right: 6px;
+  }
+
+  span {
+    font-size: 14px;
+  }
+}
