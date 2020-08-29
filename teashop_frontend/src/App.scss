@@ -1,13 +1,19 @@
 @import "./src/colors.scss";
 
-#root{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
 }
 
-a{
-    color: $violet1;
-    text-decoration: none;
+main {
+  width: 1260px;
+  margin: 0 auto;
+  flex: 1 0 auto;
+}
+
+a {
+  color: $violet1;
+  text-decoration: none;
 }

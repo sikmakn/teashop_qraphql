@@ -1,11 +1,16 @@
-import React from 'react';
-import './home.scss';
+import React from "react";
+import {RouteComponentProps} from 'react-router-dom';
 import Header from "../../components/header";
-import MainBanner from "../../components/mainBanner";
 import Footer from "../../components/footer";
-import TeaList from "../../components/teaList";
+import CardsList from "../../components/cardsList";
+import styles from './productPage.module.scss';
+import DetailedProduct from "../../components/detailedProduct";
 
-const Home: React.FC = () => {
+export interface ProductPageParams {
+    match: RouteComponentProps<{ id: string }>
+}
+
+const ProductPage: React.FC<ProductPageParams> = ({match}) => {
     const teaInfos = [
         {
             _id: 'id',
@@ -44,18 +49,29 @@ const Home: React.FC = () => {
             weight: 100,
         }
     ];
-
+    const productInf = {
+        imgs: [''],
+        description: '',
+        article: '',
+        price: 200,
+        discount: 45,
+        effect: '',
+        packaging: '',
+        taste: '',
+        type: '',
+        brew: '',
+    };
     return (
         <>
             <Header/>
             <main>
-                <MainBanner/>
-                <TeaList name={'Улун'} count={20} teaInfos={teaInfos}/>
-                <TeaList name={'Пуэр'} count={85} teaInfos={teaInfos}/>
+                <DetailedProduct {...productInf}/>
+                <h2 className={styles.alsoLikeHeader}>Вам может понравиться</h2>
+                <CardsList teaInfos={teaInfos}/>
             </main>
             <Footer/>
         </>
     );
 };
 
-export default Home;
+export default ProductPage;

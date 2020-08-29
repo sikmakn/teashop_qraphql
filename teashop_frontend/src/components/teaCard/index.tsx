@@ -33,7 +33,7 @@ const TeaCard: React.FC<TeaCardParams> =
         };
 
         return (
-            <a href={`./${_id}`} className={styles.cardContainer} style={{width: isCart ? 285 : 217}}>
+            <a href={`${PATHS.PRODUCT}/${_id}`} className={styles.cardContainer} style={{width: isCart ? 285 : 217}}>
                 <img src={imgSrc} alt={description}/>
                 <div className={styles.commonInfoContainer}>
                     <span className={styles.price}>{price}р</span> / <span>{weight}гр</span>
@@ -45,7 +45,10 @@ const TeaCard: React.FC<TeaCardParams> =
                         onMouseLeave={isMouseLeaveHandler.bind(null)}
                     >
                         <img
-                            src={isHoverCart ? './cart_yellow.svg' : './cart_grey.svg'}
+                            src={
+                                process.env.PUBLIC_URL +
+                                (isHoverCart ? '/cart_yellow.svg' : '/cart_grey.svg')
+                            }
                             alt=""
                         />
                     </a>
