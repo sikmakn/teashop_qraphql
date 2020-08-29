@@ -1,0 +1,14 @@
+@import './src/colors.scss';
+
+.listName{
+  font-size: 26px;
+  font-weight: 600;
+}
+.count{
+  line-height: 4.813;
+  margin-left: 5px;
+  font-size: 16px;
+  color: $grey2;
+  position: relative;
+  bottom: 12px;
+}
