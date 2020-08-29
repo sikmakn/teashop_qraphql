@@ -1,0 +1,47 @@
+@import "./src/colors.scss";
+
+.sortContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  > span {
+    color: $grey1;
+    cursor: pointer;
+
+    > img {
+      margin-left: 16px;
+      width: 18px;
+      height: 10px;
+    }
+
+    &.selected {
+      color: #000000;
+    }
+  }
+
+  .selected {
+    color: $yellow1;
+  }
+
+  .popUp {
+    position: absolute;
+    top: 76px;
+    left: -36px;
+    box-shadow: 0 3px 84px 0 rgba(0, 0, 0, 0.07);
+    background: #ffffff;
+    padding: 26px 37px;
+    white-space: nowrap;
+
+    > div {
+      margin: 10px 0;
+      cursor: pointer;
+
+      > img {
+        width: 14px;
+        height: 11px;
+        margin-left: 19px;
+      }
+    }
+  }
+}

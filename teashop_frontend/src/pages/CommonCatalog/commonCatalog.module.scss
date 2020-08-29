@@ -1,0 +1,13 @@
+.mainContainer {
+  margin-top: 34px;
+  display: flex;
+
+  .teaGridContainer {
+    width: 935px;
+
+    .topContainer {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

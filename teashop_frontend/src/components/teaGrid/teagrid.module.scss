@@ -1,0 +1,9 @@
+.gridContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  > div {
+    margin-bottom: 42px;
+  }
+}

@@ -1,0 +1,35 @@
+@import "./src/colors.scss";
+
+.itemContainer {
+  font-size: 16px;
+
+  .selected {
+    color: $yellow1;
+  }
+
+  .itemName {
+    display: flex;
+    margin-bottom: 19px;
+
+    > img {
+      margin-right: 17px;
+      width: 18px;
+      height: 10px;
+    }
+  }
+
+  .subItemsContainer {
+    color: $grey1;
+
+    .subItem {
+      margin-bottom: 19px;
+
+      img {
+        height: 18px;
+        width: 18px;
+        margin-right: 16px;
+      }
+    }
+
+  }
+}
