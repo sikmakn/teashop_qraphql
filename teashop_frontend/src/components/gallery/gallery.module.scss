@@ -1,0 +1,30 @@
+
+.galleryContainer {
+  width: 710px;
+
+  img {
+    border: 1px solid #F0F0F0;
+    object-fit: cover;
+    background-position: center;
+  }
+
+  > img {
+    width: 710px;
+    height: 392px;
+    margin-bottom: 20px;
+  }
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+
+    .selectedSmall {
+      opacity: .35;
+    }
+
+    > img {
+      width: 126px;
+      height: 70px;
+    }
+  }
+}

@@ -9,18 +9,18 @@ const Header: React.FC = () => {
     const [isActiveCatalog, setIsActiveCatalog] = useState(false);
 
     const catalogClickHandler = () => {
-      setIsActiveCatalog(!isActiveCatalog);
+        setIsActiveCatalog(!isActiveCatalog);
     };
 
     return (
         <header>
             <div>
-                <img className={styles.logo} src="./logo.svg" alt="Teashop"/>
+                <a href={PATHS.HOME}><img className={styles.logo} src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Teashop"/></a>
                 <div className={styles.catalog} onClick={catalogClickHandler}>
                     {
                         isActiveCatalog ?
-                            <img src="./menu_active.svg" alt="каталог"/> :
-                            <img src="./menu.svg" alt="каталог"/>
+                            <img src={`${process.env.PUBLIC_URL}/menu_active.svg`} alt="каталог"/> :
+                            <img src={`${process.env.PUBLIC_URL}/menu.svg`} alt="каталог"/>
                     }
                     <span>Чайный каталог</span>
                 </div>

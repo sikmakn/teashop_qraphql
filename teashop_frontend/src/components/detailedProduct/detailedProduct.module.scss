@@ -1,0 +1,105 @@
+@import "./src/colors.scss";
+
+.productContainer {
+  display: flex;
+  margin-top: 43px;
+
+  .productInfoContainer {
+    margin-left: 53px;
+
+    > h1 {
+      font-weight: normal;
+      font-size: 28px;
+      padding-top: 0;
+      margin-top: -7px;
+      width: 468px;
+    }
+
+    .article {
+      color: $grey1;
+      font-size: 16px;
+      margin-bottom: 43px;
+      margin-top: 8px;
+
+      > span {
+        color: #000000;
+      }
+    }
+
+    .priceContainer {
+      display: flex;
+      font-size: 24px;
+      line-height: 35px;
+      margin-bottom: 17px;
+
+      .realPrice {
+        font-weight: 600;
+        font-size: 28px;
+        margin-right: 20px;
+      }
+
+      .weight {
+        margin-right: 25px;
+
+        > input[type="text"] {
+          width: 45px;
+          border: none;
+          border-bottom: 1px solid $grey1;
+          color: $grey2;
+          font-size: 24px;
+          line-height: 35px;
+          margin-right: 6px;
+        }
+      }
+
+      .oldPrice {
+        text-decoration: line-through;
+        margin-right: 24px;
+        color: #ff0000;
+
+        > span {
+          color: #000000;
+        }
+      }
+
+      .discount {
+        color: #ff0000;
+      }
+
+    }
+
+    .cartContainer {
+      >button{
+        width: 156px;
+        height: 49px;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 20px;
+        border: none;
+        background: $violet2;
+        margin-right: 33px;
+      }
+      >a{
+        margin-right: 6px;
+      }
+      >span{
+        color: $grey1;
+      }
+    }
+
+    .info {
+      font-size: 14px;
+      line-height: 32px;
+      margin-top: 38px;
+
+      .name {
+        display: inline-block;
+        width: 130px;
+        color: $grey1;
+        text-align: right;
+        margin-right: 20px;
+      }
+    }
+
+  }
+}

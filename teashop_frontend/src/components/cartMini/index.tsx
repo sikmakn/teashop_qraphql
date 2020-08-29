@@ -6,7 +6,7 @@ const CartMini: React.FC = () => {
     const [count, setCount] = useState(0);
     return (
         <a href={PATHS.CART} className={styles.cartMini}>
-            <img src="./shopping_cart.svg" alt="корзина"/>
+            <img src={`${process.env.PUBLIC_URL}/shopping_cart.svg`} alt="корзина"/>
             <span>{count}</span>
         </a>
     );

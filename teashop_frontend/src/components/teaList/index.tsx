@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './teaList.module.scss';
 import TeaCard, {TeaCardParams} from "../teaCard";
+import CardsList from "../cardsList";
 
 export interface TeaListProps {
     name: string
@@ -16,9 +17,7 @@ const TeaList: React.FC<TeaListProps> = ({name, count, teaInfos}) => {
                 <sup className={styles.count}>{count}</sup>
                 <a href="">Смотреть все товары</a>
             </div>
-            <div className={styles.cardContainer}>
-                {teaInfos.map(params => <TeaCard {...params} key={params._id} isCart={true}/>)}
-            </div>
+            <CardsList teaInfos={teaInfos}/>
         </div>
     );
 };

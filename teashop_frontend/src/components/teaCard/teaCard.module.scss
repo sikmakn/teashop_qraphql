@@ -18,11 +18,16 @@
       font-weight: bold;
     }
 
-    .oldPrice {
-      margin-left: 16px;
+    s {
+      color: #ff0000;
+
+      .oldPrice {
+        margin-left: 16px;
+        color: #000000;
+      }
     }
 
-    .discountPercentage {
+    .discount {
       margin-left: 16px;
       color: #ff0000;
     }
