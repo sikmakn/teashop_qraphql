@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from './detailedProduct.module.scss';
 import Gallery from "../gallery";
 
@@ -29,6 +29,18 @@ const DetailedProduct: React.FC<DetailedProductParams> =
          brew,
      }) => {
         const [weight, setWeight] = useState(1);
+        const [realPrice, setRealPrice] = useState(calculateRealPrice());
+        useEffect(() => {
+            setRealPrice(calculateRealPrice())
+        }, [weight]);
+
+        function calculateRealPrice() {
+            const realPrice = discount ?
+                price * (1 - discount) * weight :
+                price * weight;
+            return realPrice.toFixed(2);
+        }
+
         return (
             <div className={styles.productContainer}>
                 <Gallery imgPaths={imgs}/>
@@ -36,12 +48,10 @@ const DetailedProduct: React.FC<DetailedProductParams> =
                     <h1>{description}</h1>
                     <div className={styles.article}>Артикул <span>{article}</span></div>
                     <div className={styles.priceContainer}>
-                        <span className={styles.price}>
-                            {discount ? price * discount * weight : price * weight}
-                        </span>
-                        <input type="text"/> гр
-                        {discount && <span className={styles.oldPrice}>{price}р</span>}
-                        {discount && <span className={styles.discount}>{discount}%</span>}
+                        <span className={styles.realPrice}>{realPrice}р</span>
+                        <span className={styles.weight}><input type="text" value={weight * 100}/> гр</span>
+                        {discount && <s className={styles.oldPrice}><span>{price}р</span></s>}
+                        {discount && <span className={styles.discount}>{discount * 100}%</span>}
                     </div>
                     <div className={styles.cartContainer}>
                         <button>В корзину</button>
