@@ -1,0 +1,9 @@
+@import "./src/colors.scss";
+
+.button {
+  border: 1px solid $violet1;
+  background: #ffffff;
+  color: $grey1;
+  padding: 17px 27px;
+  margin-left: 161px;
+}

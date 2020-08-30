@@ -14,24 +14,6 @@
   .commonInfoContainer {
     margin: 19px 0;
 
-    .price {
-      font-weight: bold;
-    }
-
-    s {
-      color: #ff0000;
-
-      .oldPrice {
-        margin-left: 16px;
-        color: #000000;
-      }
-    }
-
-    .discount {
-      margin-left: 16px;
-      color: #ff0000;
-    }
-
     a {
       margin-left: 17px;
 
@@ -39,23 +21,6 @@
         width: 18px;
         height: 17px;
       }
-    }
-
-  }
-
-  .description {
-    padding: 0;
-    overflow: hidden;
-    max-height: 45px;
-    height: 45px;
-
-    div {
-      -moz-column-width: 217px;
-      -webkit-column-width: 217px;
-      column-width: 217px;
-      height: 100%;
-      text-overflow: ellipsis;
-      line-height: 22px;
     }
   }
 }

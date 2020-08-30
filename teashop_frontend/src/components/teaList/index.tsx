@@ -1,9 +1,10 @@
 import React from "react";
 import styles from './teaList.module.scss';
-import TeaCard, {TeaCardParams} from "../teaCard";
+import {TeaCardParams} from "../teaCard";
 import CardsList from "../cardsList";
 import {PATHS} from "../../constants";
 import InscriptionWithCount from "../inscriptionWithCount";
+import {Link} from "react-router-dom";
 
 export interface TeaListProps {
     name: string
@@ -16,7 +17,7 @@ const TeaList: React.FC<TeaListProps> = ({name, count, teaInfos}) => {
         <div className={styles.teaListContainer}>
             <div className={styles.teaName}>
                 <InscriptionWithCount inscription={name} count={count}/>
-                <a href={PATHS.CATALOG}>Смотреть все товары</a>
+                <Link to={PATHS.CATALOG}>Смотреть все товары</Link>
             </div>
             <CardsList teaInfos={teaInfos}/>
         </div>

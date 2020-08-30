@@ -1,0 +1,15 @@
+.description {
+  padding: 0;
+  overflow: hidden;
+  max-height: 45px;
+  height: 45px;
+
+  div {
+    -moz-column-width: 217px;
+    -webkit-column-width: 217px;
+    column-width: 217px;
+    height: 100%;
+    text-overflow: ellipsis;
+    line-height: 22px;
+  }
+}
