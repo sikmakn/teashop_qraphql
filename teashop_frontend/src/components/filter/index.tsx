@@ -43,6 +43,7 @@ const Filter: React.FC<FilterParams> = ({selectedIds, setSelectedIds}) => {
     return (
         <div className={styles.filterContainer}>
             {items.map((params) => <FilterItem {...params} selectedIds={selectedIds} setSelected={setSelectedIds}/>)}
+            <button className={styles.button}>Очистить фильтры</button>
         </div>
     );
 };
