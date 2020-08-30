@@ -1,0 +1,55 @@
+@import "./src/colors.scss";
+
+.cardContainer {
+  display: flex;
+  box-shadow: 0 3px 84px 0 rgba(0, 0, 0, 0.07);
+  margin-bottom: 10px;
+  padding: 26px 31px;
+  width: min-content;
+  align-items: center;
+
+  img {
+    width: 112px;
+    height: 94px;
+    margin-right: 27px;
+  }
+
+  .descriptionContainer {
+    padding: 14px 0;
+    width: 358px;
+    margin-right: 121px;
+
+    > div {
+      margin-top: 16px;
+    }
+  }
+
+  .weight {
+    display: flex;
+    align-items: flex-start;
+    font-size: 20px;
+    height: 25px;
+    margin-right: 78px;
+
+    > input {
+      border: none;
+      font-size: 20px;
+      color: $grey2;
+      border-bottom: 1px solid $grey1;
+      padding-bottom: 8px;
+      width: 39px;
+      margin-right: 8px;
+    }
+  }
+
+  .price {
+    font-size: 28px;
+    font-weight: 600;
+    margin-right: 27px;
+  }
+
+  .remove {
+    width: 12px;
+    height: 12px;
+  }
+}

@@ -1,0 +1,79 @@
+@import "./src/colors.scss";
+
+.fullPriceContainer {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 935px;
+  margin-top: 33px;
+
+  .value {
+    line-height: 28px;
+    font-weight: 600;
+    width: 103px;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .priceInfo {
+    text-align: right;
+    width: 595px;
+    border-bottom: 1px solid $grey3;
+    margin-bottom: 21px;
+
+    > div {
+      margin-bottom: 18px;
+
+      > span {
+        &:first-child {
+          color: $grey2;
+          margin-right: 26px;
+        }
+
+        &:last-child {
+          color: $grey4;
+        }
+      }
+
+      &.deliveryContainer {
+        display: flex;
+        justify-content: flex-end;
+
+        > div {
+          margin-right: 26px;
+
+          > span {
+            cursor: pointer;
+
+            &.selected {
+              color: $violet1;
+            }
+
+            &:first-child {
+              margin-right: 8px;
+            }
+
+            &:last-child {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .total {
+    margin-bottom: 30px;
+
+    span:last-child {
+      margin-left: 26px;
+      color: $yellow1;
+    }
+  }
+
+  .deliveryInfo {
+    color: $grey1;
+  }
+
+}

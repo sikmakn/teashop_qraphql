@@ -4,6 +4,7 @@ import {PATHS} from '../../constants';
 import Search from "../search";
 import CartMini from "../cartMini";
 import Catalog from "../catalog";
+import {Link} from "react-router-dom";
 
 const Header: React.FC = () => {
     const [isActiveCatalog, setIsActiveCatalog] = useState(false);
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
     return (
         <header>
             <div>
-                <a href={PATHS.HOME}><img className={styles.logo} src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Teashop"/></a>
+                <Link to={PATHS.HOME}><img className={styles.logo} src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Teashop"/></Link>
                 <div className={styles.catalog} onClick={catalogClickHandler}>
                     {
                         isActiveCatalog ?
@@ -27,7 +28,7 @@ const Header: React.FC = () => {
                 {isActiveCatalog && <Catalog/>}
                 <span className={styles.phone}>375 33 604 11 77</span>
                 <span className={styles.workTime}>с 10 до 21</span>
-                <a className={styles.delivery} href={PATHS.CATALOG}>Доставка и оплата</a>
+                <Link className={styles.delivery} to={PATHS.CATALOG}>Доставка и оплата</Link>
                 <div className={styles.search}><Search/></div>
                 <CartMini/>
             </div>
