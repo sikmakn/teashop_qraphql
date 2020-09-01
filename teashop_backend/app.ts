@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
+dotenv.config();
+import sequelize from './db/connection';
 
 async function start() {
-    dotenv.config();
-
+    await sequelize.sync();
 }
 
 start();
