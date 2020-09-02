@@ -1,5 +1,6 @@
 import sequelize from '../connection';
 import {DataTypes, Model} from 'sequelize';
+import ProductOrder from "./ProductOrder";
 
 class Order extends Model {
 }
@@ -16,19 +17,21 @@ Order.init({
             type: DataTypes.DECIMAL(65, 2),
             allowNull: false
         },
-        closedBy: {
+        closedAt: {
             type: DataTypes.DATE
         },
         status: {
             type: DataTypes.ENUM,
-            values:['active','not confirmed', 'closed','canceled'],
+            values: ['active', 'not confirmed', 'closed', 'canceled'],
             defaultValue: 'not confirmed',
-            allowNull:false
+            allowNull: false
         }
     },
     {
         sequelize,
         modelName: 'Order',
     });
+
+Order.hasMany(ProductOrder, {onDelete: 'cascade'});
 
 export default Order;

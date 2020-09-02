@@ -1,4 +1,4 @@
-export default interface IFile {
+export interface IFile {
     type: string
     size: number
     name: string

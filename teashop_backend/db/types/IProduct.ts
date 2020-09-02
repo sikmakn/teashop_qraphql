@@ -1,9 +1,9 @@
-import IProductDescription from "./IProductDescription";
-import IProductType from "./IProductType";
+import {IProductDescription} from "./IProductDescription";
+import {IProductType} from "./IProductType";
 import {IProductSubType} from "./IProductSubType";
-import IFile from "./IFile";
+import {IFile} from "./IFile";
 
-export default interface IProduct {
+export interface IProduct {
     weight: number
     shortDescription: string
     inStock: boolean

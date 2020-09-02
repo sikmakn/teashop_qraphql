@@ -1,4 +1,4 @@
-export default interface IProductDescription{
-    name:string
-    value:string
+export interface IProductDescription {
+    name: string
+    value: string
 }

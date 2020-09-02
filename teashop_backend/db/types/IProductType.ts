@@ -1,6 +1,6 @@
 import {IProductSubType} from "./IProductSubType";
 
-export default interface IProductType {
+export interface IProductType {
     name: string
     subtypes?: IProductSubType[]
 }

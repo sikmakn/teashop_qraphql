@@ -1,6 +1,6 @@
 import ProductType from "../models/ProductType";
 import ProductSubType from "../models/ProductSubType";
-import IProductType from "../types/IProductType";
+import {IProductType} from "../types/IProductType";
 import {IProductSubType} from "../types/IProductSubType";
 
 export async function create(productType: IProductType) {
@@ -13,7 +13,7 @@ export async function findById(productTypeId: string) {
 }
 
 export async function updateById(id: string, name: string) {
-    return await ProductType.update({name}, {where: {id}}, {include: [{model: ProductSubType}]});
+    return await ProductType.update({name}, {where: {id}});
 }
 
 export async function findAll() {
@@ -27,5 +27,5 @@ export async function bulkSubtype(productTypeId: string, subTypes: IProductSubTy
 }
 
 export async function removeById(id: string) {
-    return await ProductType.destroy({where: {id}}, {include: [{model: ProductSubType}]});
+    return await ProductType.destroy({where: {id}});
 }

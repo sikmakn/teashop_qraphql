@@ -1,6 +1,6 @@
 import {literal, Op} from 'sequelize';
 import Product from "../models/Product";
-import IProduct from "../types/IProduct";
+import {IProduct} from "../types/IProduct";
 import File from "../models/File";
 import ProductType from "../models/ProductType";
 import ProductDescription from "../models/ProductDescription";
@@ -35,13 +35,14 @@ export async function find(
         };
 
     const orderObj = createOrderFindObj(sort);
-    return await Product.findAll({...findObj, ...orderObj},
-        {include: [{model: File}, {model: ProductDescription}]});
+    return await Product.findAll({
+        ...findObj, ...orderObj,
+        include: [{model: File}, {model: ProductDescription}]
+    });
 }
 
 export async function removeById(id: string) {
-    return await ProductType.destroy({where: {id}},
-        {include: [{model: File}, {model: ProductDescription}]});
+    return await ProductType.destroy({where: {id}});
 }
 
 
