@@ -1,8 +1,34 @@
 import sequelize from '../connection';
-import {DataTypes, Model} from 'sequelize';
+import {
+    Association,
+    DataTypes,
+    HasManyAddAssociationMixin,
+    HasManyCountAssociationsMixin,
+    HasManyGetAssociationsMixin,
+    HasManyHasAssociationMixin,
+    Model,
+    Optional
+} from 'sequelize';
 import ProductSubType from "./ProductSubType";
+import {IProductType} from "../types/IProductType";
 
-class ProductType extends Model {
+interface IProductTypeCreation extends Optional<IProductType, "id"> {
+}
+
+class ProductType extends Model<IProductType, IProductTypeCreation> implements IProductType {
+    id!: string;
+    name!: string;
+
+    public getProductSubTypes!: HasManyGetAssociationsMixin<ProductSubType>;
+    public addProductSubType!: HasManyAddAssociationMixin<ProductSubType, string>;
+    public hasProductSubType!: HasManyHasAssociationMixin<ProductSubType, string>;
+    public countProductSubTypes!: HasManyCountAssociationsMixin;
+
+    public readonly productSubTypes?: ProductSubType[];
+
+    public static associations: {
+        productSubTypes: Association<ProductType, ProductSubType>;
+    }
 }
 
 ProductType.init({
@@ -10,7 +36,7 @@ ProductType.init({
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: false,
             allowNull: false
         },
         name: {
@@ -23,6 +49,10 @@ ProductType.init({
         modelName: 'ProductType',
     });
 
-ProductType.hasMany(ProductSubType, { onDelete: "cascade" });
+ProductType.hasMany(ProductSubType, {
+    onDelete: 'cascade',
+    foreignKey: 'productSubTypeId',
+    as: 'productSubTypes'
+});
 
 export default ProductType;

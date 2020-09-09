@@ -1,0 +1,13 @@
+#import ProductSubType from "productSubType.graphql"
+#import ProductSubTypeInput from "productSubType.graphql"
+
+type ProductType{
+    id:ID!
+    name:String!
+    productSubTypes: [ProductSubType]
+}
+
+input ProductTypeInput{
+    name:String!
+    productSubTypes: [ProductSubTypeInput]
+}

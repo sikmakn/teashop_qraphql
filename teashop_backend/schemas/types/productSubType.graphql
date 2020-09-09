@@ -1,0 +1,8 @@
+type ProductSubType{
+    id:ID!
+    name:String!
+}
+
+input ProductSubTypeInput{
+    name:String!
+}

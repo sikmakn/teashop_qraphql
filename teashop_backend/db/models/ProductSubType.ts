@@ -1,7 +1,14 @@
 import sequelize from '../connection';
-import {DataTypes, Model} from 'sequelize';
+import {DataTypes, Model, Optional} from 'sequelize';
+import {IProductSubType} from "../types/IProductSubType";
 
-class ProductSubType extends Model {
+interface IProductSubTypeCreation extends Optional<IProductSubType, "id"> {
+}
+
+class ProductSubType extends Model<IProductSubType, IProductSubTypeCreation> implements IProductSubType {
+    public id!: string;
+    public name!: string;
+    public productTypeId!: string
 }
 
 ProductSubType.init({
@@ -9,11 +16,15 @@ ProductSubType.init({
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: false,
             allowNull: false
         },
         name: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        productTypeId: {
+            type: DataTypes.UUID,
             allowNull: false,
         }
     },

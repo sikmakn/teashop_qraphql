@@ -1,0 +1,11 @@
+#import ProductType from "../types/productType.graphql"
+#import ProductSubType from "../types/productSubType.graphql"
+#import ProductTypeInput from "../types/productType.graphql"
+
+type Query{
+    getAllProductTypes: [ProductType]!
+}
+
+type Mutation{
+    addProductType(productType: ProductTypeInput):ProductType
+}

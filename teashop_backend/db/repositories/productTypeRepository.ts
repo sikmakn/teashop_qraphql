@@ -5,11 +5,11 @@ import {IProductSubType} from "../types/IProductSubType";
 
 export async function create(productType: IProductType) {
     return await ProductType.create(productType,
-        {include: [{model: ProductSubType}]});
+        {include: [ProductType.associations.productSubTypes]});
 }
 
 export async function findById(productTypeId: string) {
-    return await ProductType.findByPk(productTypeId, {include: [{model: ProductSubType}]});
+    return await ProductType.findByPk(productTypeId, {include: [ProductType.associations.productSubTypes]});
 }
 
 export async function updateById(id: string, name: string) {
@@ -17,7 +17,7 @@ export async function updateById(id: string, name: string) {
 }
 
 export async function findAll() {
-    return await ProductType.findAll({include: [{model: ProductSubType}]});
+    return await ProductType.findAll({include: [ProductType.associations.productSubTypes]});
 }
 
 export async function bulkSubtype(productTypeId: string, subTypes: IProductSubType[]) {
