@@ -7,5 +7,5 @@ type Query{
 }
 
 type Mutation{
-    addProductType(productType: ProductTypeInput):ProductType
+    addProductType(productType: ProductTypeInput):ProductType!
 }

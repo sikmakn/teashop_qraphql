@@ -36,7 +36,7 @@ ProductType.init({
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
-            autoIncrement: false,
+            // autoIncrement: true,
             allowNull: false
         },
         name: {
@@ -51,7 +51,8 @@ ProductType.init({
 
 ProductType.hasMany(ProductSubType, {
     onDelete: 'cascade',
-    foreignKey: 'productSubTypeId',
+    sourceKey: 'id',
+    foreignKey: 'productTypeId',
     as: 'productSubTypes'
 });
 

@@ -16,7 +16,7 @@ ProductSubType.init({
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
-            autoIncrement: false,
+            // autoIncrement: true,
             allowNull: false
         },
         name: {

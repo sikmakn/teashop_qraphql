@@ -1,11 +1,11 @@
 import dotenv from 'dotenv';
+dotenv.config();
 import createDb from "./db/createDb";
 import Koa from 'koa';
 import koaBody from 'koa-bodyparser';
 import {ApolloServer} from 'apollo-server-koa';
 import getSchemaAsync from './schemas';
 
-dotenv.config();
 
 async function start() {
     await createDb;

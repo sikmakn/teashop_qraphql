@@ -8,6 +8,7 @@ export const resolvers = {
                 ({id, name, productSubTypes})),
     },
     Mutation: {
-        addProductType: async (productType: IProductType) => await productTypeService.create(productType),
+        addProductType: async (root:any, {productType}:{productType:  IProductType}) =>
+             await productTypeService.create(productType),
     }
 };
