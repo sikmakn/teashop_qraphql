@@ -1,5 +1,5 @@
 import * as productTypeRepository from '../db/repositories/productTypeRepository';
-import {IProductType} from "../db/types/IProductType";
+import {IProductType, IProductTypeBasic} from "../db/types/IProductType";
 
 export async function create(productType: IProductType) {
     return await productTypeRepository.create(productType);
@@ -15,4 +15,12 @@ export async function findById(id: string) {
 
 export async function getSubTypes(productTypeId: string) {
     return (await productTypeRepository.findById(productTypeId))?.productSubTypes;
+}
+
+export async function updateBasic(productType: IProductTypeBasic) {
+    return (await productTypeRepository.updateBasic(productType));
+}
+
+export async function remove(id: string) {
+    return await productTypeRepository.removeById(id);
 }

@@ -11,3 +11,8 @@ input ProductTypeInput{
     name:String!
     productSubTypes: [ProductSubTypeInput]
 }
+
+input ProductTypeBasicInput{
+    id:ID!
+    name:String!
+}

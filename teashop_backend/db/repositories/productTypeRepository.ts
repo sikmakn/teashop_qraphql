@@ -1,6 +1,6 @@
 import ProductType from "../models/ProductType";
 import ProductSubType from "../models/ProductSubType";
-import {IProductType} from "../types/IProductType";
+import {IProductType, IProductTypeBasic} from "../types/IProductType";
 import {IProductSubType} from "../types/IProductSubType";
 
 export async function create(productType: IProductType) {
@@ -12,7 +12,7 @@ export async function findById(productTypeId: string) {
     return await ProductType.findByPk(productTypeId, {include: [ProductType.associations.productSubTypes]});
 }
 
-export async function updateById(id: string, name: string) {
+export async function updateBasic({id, name}:IProductTypeBasic) {
     return await ProductType.update({name}, {where: {id}});
 }
 

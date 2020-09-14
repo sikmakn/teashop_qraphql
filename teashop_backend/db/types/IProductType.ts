@@ -5,3 +5,8 @@ export interface IProductType {
     name: string
     subtypes?: IProductSubType[]
 }
+
+export interface IProductTypeBasic {
+    id:string
+    name:string
+}

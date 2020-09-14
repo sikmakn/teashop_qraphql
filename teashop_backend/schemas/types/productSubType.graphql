@@ -5,4 +5,10 @@ type ProductSubType{
 
 input ProductSubTypeInput{
     name:String!
+    productTypeId:ID!
+}
+
+input ProductSubTypeBasicInput{
+    id:ID!
+    name:String!
 }
