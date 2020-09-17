@@ -1,37 +1,45 @@
-// import sequelize from '../connection';
-// import {DataTypes, Model} from 'sequelize';
-//
-// class File extends Model {
-// }
-//
-// File.init({
-//         id: {
-//             type: DataTypes.UUID,
-//             defaultValue: DataTypes.UUIDV4,
-//             primaryKey: true,
-//             autoIncrement: true,
-//             allowNull: false
-//         },
-//         data: {
-//             type: DataTypes.BLOB,
-//             allowNull: false,
-//         },
-//         type: {
-//             type: DataTypes.STRING,
-//             allowNull: false,
-//         },
-//         size: {
-//             type: DataTypes.INTEGER,
-//             allowNull: false,
-//         },
-//         name: {
-//             type: DataTypes.STRING,
-//             allowNull: false,
-//         }
-//     },
-//     {
-//         sequelize,
-//         modelName: 'File',
-//     });
-//
-// export default File;
+import {BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table} from 'sequelize-typescript';
+import Product from "./Product";
+
+@Table
+class File extends Model<File> {
+    @PrimaryKey
+    @Column({
+        type: DataType.UUID,
+        defaultValue: DataType.UUIDV4,
+        allowNull: false
+    })
+    id!: string;
+
+    @Column({
+        type: DataType.BLOB,
+        allowNull: false,
+    })
+    data!: Buffer;
+
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+    })
+    type!: string;
+
+    @Column({
+        type: DataType.INTEGER,
+        allowNull: false,
+    })
+    size!: number;
+
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+    })
+    name!: string;
+
+    @ForeignKey(() => Product)
+    productId!: string;
+
+    @BelongsTo(() => Product)
+    product!: Product;
+}
+
+export default File;

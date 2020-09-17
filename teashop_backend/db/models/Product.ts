@@ -1,67 +1,71 @@
-// import sequelize from '../connection';
-// import {DataTypes, Model} from 'sequelize';
-// import File from './File';
-// import ProductType from "./ProductType";
-// import ProductSubType from "./ProductSubType";
-// import ProductDescription from "./ProductDescription";
-// import Order from "./Order";
-// import ProductOrder from "./ProductOrder";
-//
-// class Product extends Model {
-// }
-//
-// Product.init({
-//         id: {
-//             type: DataTypes.UUID,
-//             defaultValue: DataTypes.UUIDV4,
-//             primaryKey: true,
-//             autoIncrement: true,
-//             allowNull: false
-//         },
-//         weight: {
-//             type: DataTypes.INTEGER,
-//             allowNull: false
-//         },
-//         shortDescription: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         inStock: {
-//             type: DataTypes.BOOLEAN,
-//             allowNull: false,
-//         },
-//         price: {
-//             type: DataTypes.DECIMAL(65, 2),
-//             allowNull: false
-//         },
-//         discount: {
-//             type: DataTypes.DECIMAL(5, 4),
-//         }
-//         // effect: {
-//         //     type: DataTypes.STRING,
-//         //     allowNull: false,
-//         // },
-//         // packaging: {
-//         //     type: DataTypes.STRING,
-//         //     allowNull: false,
-//         // },
-//         // taste: {
-//         //     type: DataTypes.STRING,
-//         //     allowNull: false
-//         // }
-//     },
-//     {
-//         sequelize,
-//         modelName: 'Product',
-//     });
-//
-// Product.hasMany(File, {onDelete: "cascade"});
-// Product.hasMany(ProductDescription, {onDelete: "cascade"});
-//
-// Product.belongsTo(ProductType);
-// Product.belongsTo(ProductSubType);
-//
-// Product.belongsToMany(Order, {through:ProductOrder});
-// Order.belongsToMany(Product, {through:ProductOrder});
-//
-// export default Product;
+import {
+    BelongsTo,
+    BelongsToMany,
+    Column,
+    DataType,
+    ForeignKey,
+    HasMany,
+    Model,
+    PrimaryKey,
+    Table
+} from 'sequelize-typescript';
+import ProductType from "./ProductType";
+import ProductSubType from "./ProductSubType";
+import ProductOrder from "./ProductOrder";
+import Order from "./Order";
+import File from "./File";
+
+@Table
+class Product extends Model<Product> {
+    @PrimaryKey
+    @Column({
+        type: DataType.UUID,
+        defaultValue: DataType.UUIDV4,
+        allowNull: false
+    })
+    id!: string;
+
+    @Column({
+        type: DataType.DECIMAL(65, 2),
+        allowNull: false
+    })
+    price!: number;
+
+    @Column({
+        type: DataType.INTEGER,
+        allowNull: false
+    })
+    weight!: number;
+
+    @Column(DataType.DECIMAL(5, 4))
+    discount?: number;
+
+    @Column(DataType.STRING,)
+    effect?: string;
+
+    @Column(DataType.STRING)
+    packaging?: string;
+
+    @Column(DataType.STRING)
+    taste?: string;
+
+    @HasMany(() => File, {onDelete: "cascade"})
+    files!: [File];
+
+    @ForeignKey(() => ProductType)
+    productTypeId?: string;
+
+    @BelongsTo(() => ProductType)
+    productType?: ProductType;
+
+    @ForeignKey(() => ProductSubType)
+    productSubTypeId?: string;
+
+    @BelongsTo(() => ProductSubType)
+    productSubType?: ProductSubType;
+
+    @BelongsToMany(() => Order, () => ProductOrder)
+    orders!: Array<Order & { ProductOrder: ProductOrder }>
+}
+
+export default Product;

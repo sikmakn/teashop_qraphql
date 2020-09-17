@@ -6,7 +6,6 @@ import koaBody from 'koa-bodyparser';
 import {ApolloServer} from 'apollo-server-koa';
 import getSchemaAsync from './schemas';
 
-
 async function start() {
     await createDb;
     await import('./db/connection').then(module => module.default.sync());

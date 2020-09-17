@@ -1,12 +1,13 @@
-import {Column, DataType, HasMany, Model, Table} from 'sequelize-typescript';
+import {Column, DataType, HasMany, Model, PrimaryKey, Table} from 'sequelize-typescript';
 import ProductSubType from "./ProductSubType";
+import Product from "./Product";
 
 @Table
 class ProductType extends Model<ProductType> {
+    @PrimaryKey
     @Column({
         type: DataType.UUID,
         defaultValue: DataType.UUIDV4,
-        primaryKey: true,
         allowNull: false
     })
     id!: string;
@@ -19,6 +20,9 @@ class ProductType extends Model<ProductType> {
 
     @HasMany(() => ProductSubType, {onDelete: 'cascade'})
     productSubTypes!: ProductSubType[];
+
+    @HasMany(() => Product)
+    products?: Product[];
 }
 
 export default ProductType;
