@@ -1,6 +1,10 @@
+#import ProductType from './productType.graphql'
+
 type ProductSubType{
     id:ID!
     name:String!
+    productTypeId: ID!
+    productType:ProductType!
 }
 
 input ProductSubTypeInput{

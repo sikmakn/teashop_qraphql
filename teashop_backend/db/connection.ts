@@ -1,10 +1,15 @@
-import {Sequelize} from 'sequelize';
+import {Sequelize} from 'sequelize-typescript';
+import ProductType from "./models/ProductType";
+import ProductSubType from "./models/ProductSubType";
 
 const {DB_NAME, MYSQL_USER, MYSQL_PASSWORD, DB_HOST} = process.env;
 
 const sequelize = new Sequelize(DB_NAME as string, MYSQL_USER as string, MYSQL_PASSWORD, {
     dialect: 'mysql',
     host: DB_HOST,
+    repositoryMode: true,
 });
+
+sequelize.addModels([ProductType, ProductSubType]);
 
 export default sequelize;

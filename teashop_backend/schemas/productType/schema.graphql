@@ -4,8 +4,8 @@
 #import ProductTypeBasicInput from "../types/productType.graphql"
 
 type Query{
-    getProductType(id:ID):ProductType!
-    getAllProductTypes: [ProductType]!
+    productType(id:ID):ProductType!
+    productTypes: [ProductType]!
 }
 
 type Mutation{

@@ -9,6 +9,6 @@ export const getProductTypeSchema = async () => {
         {loaders: [new GraphQLFileLoader()]});
     return addResolversToSchema({
         schema,
-        resolvers
+        resolvers,
     });
 };

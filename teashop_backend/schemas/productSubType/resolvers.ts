@@ -3,7 +3,8 @@ import {IProductSubType, IProductSubTypeBasic} from '../../db/types/IProductSubT
 
 export const resolvers = {
     Query: {
-        getByTypeId: async (root: any, {id}: { id: string }) => await productSubTypeService.findByTypeId(id),
+        productSubTypes: async (root: any, {typeId}: any) => await productSubTypeService.findByTypeId(typeId),
+        productSubType: async (root: any, {id}: any) => await productSubTypeService.findById(id),
     },
     Mutation: {
         addProductSubType: async (root: any, {productSubType}: { productSubType: IProductSubType }) =>

@@ -3,7 +3,8 @@
 #import ProductSubTypeBasicInput from "../types/productSubType.graphql"
 
 type Query{
-    getByTypeId(id:ID):[ProductSubType]!
+    productSubTypes(typeId:ID):[ProductSubType]!
+    productSubType(id:ID):ProductSubType
 }
 
 type Mutation{

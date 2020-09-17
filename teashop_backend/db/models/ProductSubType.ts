@@ -1,35 +1,29 @@
-import sequelize from '../connection';
-import {DataTypes, Model, Optional} from 'sequelize';
-import {IProductSubType} from "../types/IProductSubType";
+import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from 'sequelize-typescript';
+import ProductType from "./ProductType";
 
-interface IProductSubTypeCreation extends Optional<IProductSubType, "id"> {
+@Table
+class ProductSubType extends Model<ProductSubType> {
+
+    @Column({
+        type: DataType.UUID,
+        defaultValue: DataType.UUIDV4,
+        primaryKey: true,
+        allowNull: false
+    })
+    id!: string;
+
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+    })
+    name!: string;
+
+    @ForeignKey(() => ProductType)
+    @Column
+    productTypeId!: string;
+
+    @BelongsTo(() => ProductType)
+    productType?: ProductType;
 }
-
-class ProductSubType extends Model<IProductSubType, IProductSubTypeCreation> implements IProductSubType {
-    public id!: string;
-    public name!: string;
-    public productTypeId!: string
-}
-
-ProductSubType.init({
-        id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            primaryKey: true,
-            allowNull: false
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        productTypeId: {
-            type: DataTypes.UUID,
-            allowNull: false,
-        }
-    },
-    {
-        sequelize,
-        modelName: 'ProductSubType',
-    });
 
 export default ProductSubType;
