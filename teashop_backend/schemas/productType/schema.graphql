@@ -1,7 +1,19 @@
 #import ProductType from "../types/productType.graphql"
 #import ProductSubType from "../types/productSubType.graphql"
-#import ProductTypeInput from "../types/productType.graphql"
-#import ProductTypeBasicInput from "../types/productType.graphql"
+
+input ProductTypeBasicInput{
+    id:ID!
+    name:String!
+}
+
+input ProductSubTypeInputCreateForType{
+    name:String!
+}
+
+input ProductTypeInputCreate {
+    name:String!
+    productSubTypes:[ProductSubTypeInputCreateForType]
+}
 
 type Query{
     productType(id:ID):ProductType!
@@ -9,7 +21,7 @@ type Query{
 }
 
 type Mutation{
-    addProductType(productType: ProductTypeInput):ProductType!
+    addProductType(productType: ProductTypeInputCreate):ProductType!
     updateProductType(productType:ProductTypeBasicInput):ProductType!
     removeProductType(id:ID):Boolean!
 }

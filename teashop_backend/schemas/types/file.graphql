@@ -1,0 +1,11 @@
+#import Product from "./product.graphql"
+
+type File{
+    id:ID!
+    mimetype: String!
+    filename: String!
+    size: Int!
+    productId: ID!
+    product: Product
+    data:[String!]!
+}

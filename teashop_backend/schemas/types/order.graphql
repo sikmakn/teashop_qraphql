@@ -1,0 +1,17 @@
+#import ProductOrder from "productOrder.graphql"
+
+scalar Date
+enum OrderStatus{
+    ACTIVE
+    NOT_CONFIRMED
+    CLOSED
+    CANCELED
+}
+
+type Order{
+    id: String!
+    price: Float!
+    closedAt: Date
+    status: OrderStatus!
+    productOrders: [ProductOrder!]!
+}

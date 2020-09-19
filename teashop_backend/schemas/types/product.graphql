@@ -1,0 +1,22 @@
+#import ProductType from "./productType.graphql"
+#import ProductSubType from "./productSubType.graphql"
+#import File from "./file.graphql"
+#import ProductOrder from "./productOrder.graphql"
+
+type Product{
+    id: String!
+    price: Float!
+    weight: Int!
+    shortDescription: String!
+    discount: Int
+    effect: String
+    packaging: String
+    taste: String
+    files: [File!]!
+    productOrders: [ProductOrder]!
+
+    productTypeId: String
+    productType: ProductType
+    productSubTypeId: String
+    productSubType: ProductSubType
+}

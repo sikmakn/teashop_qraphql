@@ -3,10 +3,10 @@ import Product from "./Product";
 import ProductOrder from "./ProductOrder";
 
 enum OrderStatus {
-    Active = 'active',
-    NotConfirmed = 'not confirmed',
-    Closed = 'closed',
-    Canceled = 'canceled'
+    Active = 'ACTIVE',
+    NotConfirmed = 'NOT_CONFIRMED',
+    Closed = 'CLOSED',
+    Canceled = 'CANCELED'
 }
 
 @Table
@@ -30,8 +30,8 @@ class Order extends Model<Order> {
 
     @Column({
         type: DataType.ENUM,
-        values: ['active', 'not confirmed', 'closed', 'canceled'],
-        defaultValue: 'not confirmed',
+        values: ['ACTIVE', 'NOT_CONFIRMED', 'CLOSED', 'CANCELED'],
+        defaultValue: 'NOT_CONFIRMED',
         allowNull: false
     })
     status!: OrderStatus;

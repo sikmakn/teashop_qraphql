@@ -1,18 +1,9 @@
 #import ProductSubType from "productSubType.graphql"
-#import ProductSubTypeInput from "productSubType.graphql"
+#import Product from "product.graphql"
 
 type ProductType{
     id:ID!
     name:String!
     productSubTypes: [ProductSubType]
-}
-
-input ProductTypeInput{
-    name:String!
-    productSubTypes: [ProductSubTypeInput]
-}
-
-input ProductTypeBasicInput{
-    id:ID!
-    name:String!
+    products:[Product]
 }

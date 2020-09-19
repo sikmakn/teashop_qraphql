@@ -1,0 +1,11 @@
+#import Order from "order.graphql"
+#import Product from "product.graphql"
+
+type ProductOrder{
+    productId: String!
+    product: Product!
+    orderId: String!
+    order: Order!
+    price: Float!
+    weight: Int!
+}

@@ -1,7 +1,7 @@
-import ProductSubType from '../db/models/ProductSubType'
+import ProductSubType from '../db/sequelizeModels/ProductSubType'
 import connection from '../db/connection';
 import {IProductSubType, IProductSubTypeBasic} from "../db/types/IProductSubType";
-import ProductType from "../db/models/ProductType";
+import ProductType from "../db/sequelizeModels/ProductType";
 
 const productSubTypeRepository = connection.getRepository(ProductSubType);
 const productTypeRepository = connection.getRepository(ProductType);
@@ -10,15 +10,8 @@ export async function create(productSubType: IProductSubType) {
     return await productSubTypeRepository.create(productSubType);
 }
 
-export async function findById(id: string) {
-    return await productSubTypeRepository.findByPk(id, {include: [productTypeRepository]});
-}
-
-export async function findByTypeId(productTypeId: string) {
-    return await productSubTypeRepository.findAll({
-        where: {productTypeId},
-        include: [productTypeRepository]
-    });
+export async function bulk(productSubTypes: [IProductSubType]) {
+    return await productTypeRepository.bulkCreate(productSubTypes);
 }
 
 export async function updateBasic({name, id}: IProductSubTypeBasic) {

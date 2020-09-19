@@ -1,16 +1,25 @@
-import {IProductDescription} from "./IProductDescription";
 import {IProductType} from "./IProductType";
 import {IProductSubType} from "./IProductSubType";
 import {IFile} from "./IFile";
+import Order from "../sequelizeModels/Order";
+import {IProductOrder} from "./IProductOrder";
 
-export interface IProduct {
+export interface IProductBasic {
     weight: number
     shortDescription: string
-    inStock: boolean
     price: number
-    discount: number
+    discount?: number
+    productTypeId?: string
+    productSubTypeId?: string
+    effect?: string
+    packaging?: string
+    taste?: string
+}
+
+export interface IProduct extends IProductBasic{
+    id?:string
     productType?: IProductType
     productSubType?: IProductSubType
     files: IFile[]
-    descriptions: IProductDescription[]
+    orders?: Array<Order & { ProductOrder: IProductOrder }>
 }

@@ -1,32 +1,28 @@
 import * as productTypeService from '../../services/productTypeService';
-import * as productSubTypeService from '../../services/productSubTypeService';
-import {IProductType, IProductTypeBasic} from '../../db/types/IProductType';
+import {IProductTypeBasic} from '../../db/types/IProductType';
+import joinMonster from "join-monster";
+import {query} from "../../db/connection";
 
 export const resolvers = {
     Query: {
-        productType: async (root: any, {id}: any) => await productTypeService.findById(id),
-        productTypes: async () => await productTypeService.findAll(),
-    },
-    ProductType: {
-        productSubTypes: async ({productSubTypes, id}: any) => {
-            if (productSubTypes) return productSubTypes;
-            return await productSubTypeService.findByTypeId(id);
-        },
-    },
-    ProductSubType: {
-        productType: async ({productTypeId, productType}: any) => {
-            if (productType) return productType;
-            return await productTypeService.findById(productTypeId);
-        }
+        productType: async (root: any, args: any, ctx: any, info: any) =>
+            await joinMonster(info, ctx,
+                (sql: string) => query(sql),
+                {dialect: "mysql"}),
+        productTypes: async (root: any, args: any, ctx: any, info: any) =>
+            await joinMonster(info, ctx,
+                (sql: string) => query(sql),
+                {dialect: "mysql"}),
     },
     Mutation: {
-        addProductType: async (root: any, {productType}: { productType: IProductType }) =>
-            await productTypeService.create(productType),
-        removeProductType: async (root: any, {id}: { id: string }) =>
-            await productTypeService.remove(id),
+        addProductType: async (root: any, {productType}: any) => await productTypeService.create(productType),
+        removeProductType: async (root: any, {id}: { id: string }) => {
+            const result = await productTypeService.remove(id);
+            return result !== 0;
+        },
         updateProductType: async (root: any, {productType}: { productType: IProductTypeBasic }) => {
-            await productTypeService.updateBasic(productType);
-            return true;
+            const result = await productTypeService.updateBasic(productType);
+            return result[0] !== 0;
         }
     }
 };

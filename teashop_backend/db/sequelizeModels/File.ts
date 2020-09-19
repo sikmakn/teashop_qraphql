@@ -21,7 +21,7 @@ class File extends Model<File> {
         type: DataType.STRING,
         allowNull: false,
     })
-    type!: string;
+    mimetype!: string;
 
     @Column({
         type: DataType.INTEGER,
@@ -33,7 +33,7 @@ class File extends Model<File> {
         type: DataType.STRING,
         allowNull: false,
     })
-    name!: string;
+    filename!: string;
 
     @ForeignKey(() => Product)
     productId!: string;

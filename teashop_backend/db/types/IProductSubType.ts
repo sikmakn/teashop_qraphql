@@ -3,7 +3,7 @@ import {IProductType} from "./IProductType";
 export interface IProductSubType {
     id?: string
     name: string
-    productTypeId: string
+    productTypeId?: string
     productType?: IProductType
 }
 

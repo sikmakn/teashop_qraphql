@@ -26,6 +26,12 @@ class Product extends Model<Product> {
     id!: string;
 
     @Column({
+        type: DataType.STRING,
+        allowNull: false
+    })
+    shortDescription!: string;
+
+    @Column({
         type: DataType.DECIMAL(65, 2),
         allowNull: false
     })
@@ -37,7 +43,13 @@ class Product extends Model<Product> {
     })
     weight!: number;
 
-    @Column(DataType.DECIMAL(5, 4))
+    @Column({
+        type: DataType.TINYINT,
+        validate: {
+            max: 99,
+            min: 0
+        }
+    })
     discount?: number;
 
     @Column(DataType.STRING,)
