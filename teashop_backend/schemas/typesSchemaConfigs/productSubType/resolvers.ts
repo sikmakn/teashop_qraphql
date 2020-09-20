@@ -1,9 +1,9 @@
-import * as productSubTypeService from '../../services/productSubTypeService';
-import {IProductSubType, IProductSubTypeBasic} from '../../db/types/IProductSubType';
+import * as productSubTypeService from '../../../services/productSubTypeService';
+import {IProductSubType, IProductSubTypeBasic} from '../../../modelTypes/IProductSubType';
 import joinMonster from "join-monster";
-import {query} from '../../db/connection';
+import {query} from '../../../db/connection';
 
-export const resolvers = {
+const resolvers = {
     Query: {
         productSubTypes: (root: any, args: any, ctx: any, info: any) =>
             joinMonster(info, ctx, query, {dialect: "mysql"}),
@@ -25,3 +25,5 @@ export const resolvers = {
         }
     }
 };
+
+export default resolvers;

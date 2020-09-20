@@ -1,4 +1,4 @@
-#import ProductSubType from "../types/productSubType.graphql"
+#import ProductSubType from "../../graphqlTypes/productSubType.graphql"
 
 input ProductSubTypeInput{
     name:String!

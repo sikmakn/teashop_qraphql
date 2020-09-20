@@ -1,6 +1,6 @@
 import ProductSubType from '../db/sequelizeModels/ProductSubType'
 import connection from '../db/connection';
-import {IProductSubType, IProductSubTypeBasic} from "../db/types/IProductSubType";
+import {IProductSubType, IProductSubTypeBasic} from "../modelTypes/IProductSubType";
 import ProductType from "../db/sequelizeModels/ProductType";
 
 const productSubTypeRepository = connection.getRepository(ProductSubType);

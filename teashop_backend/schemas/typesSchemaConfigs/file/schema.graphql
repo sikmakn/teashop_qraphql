@@ -1,4 +1,4 @@
-#import File from "../types/file.graphql"
+#import File from "../../graphqlTypes/file.graphql"
 
 input FileCreateInput{
     mimetype: String!

@@ -1,6 +1,6 @@
 const model = {
     Order: {
-        sqlTable: `${process.env.DB_NAME}.files`,
+        sqlTable: `${process.env.DB_NAME}.orders`,
         uniqueKey: 'id',
         fields: {
             id: {

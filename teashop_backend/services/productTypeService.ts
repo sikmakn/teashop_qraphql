@@ -1,5 +1,5 @@
 import ProductType from '../db/sequelizeModels/ProductType';
-import {IProductType, IProductTypeBasic} from "../db/types/IProductType";
+import {IProductType, IProductTypeBasic} from "../modelTypes/IProductType";
 import connection from '../db/connection';
 import ProductSubType from "../db/sequelizeModels/ProductSubType";
 

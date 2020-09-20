@@ -1,8 +1,8 @@
-import * as productService from '../../services/productService';
+import * as productService from '../../../services/productService';
 import joinMonster from "join-monster";
-import {query} from "../../db/connection";
+import {query} from "../../../db/connection";
 
-export const resolvers = {
+const resolvers = {
     Query: {
         product: async (root: any, args: any, ctx: any, info: any) =>
             await joinMonster(info, ctx,
@@ -29,3 +29,5 @@ export const resolvers = {
         },
     }
 };
+
+export default resolvers;

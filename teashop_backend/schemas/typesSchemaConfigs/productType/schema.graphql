@@ -1,5 +1,5 @@
-#import ProductType from "../types/productType.graphql"
-#import ProductSubType from "../types/productSubType.graphql"
+#import ProductType from "../../graphqlTypes/productType.graphql"
+#import ProductSubType from "../../graphqlTypes/productSubType.graphql"
 
 input ProductTypeBasicInput{
     id:ID!

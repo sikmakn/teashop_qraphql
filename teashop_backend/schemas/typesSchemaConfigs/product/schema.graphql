@@ -1,4 +1,4 @@
-#import Product from "../types/product.graphql"
+#import Product from "../../graphqlTypes/product.graphql"
 
 input FileCreateInputForProduct{
     mimetype: String!
@@ -30,33 +30,31 @@ input UpdateProductInput{
 }
 
 input ProductByDiscoundFindInput{
-    order: OrderBy!
     productTypeId:ID
     productSubTypeId:ID
 }
 
 input OrderBy{
-    field:OrderField! = "POPULARITY"
-    direction: OrderDirection! = "ASC"
+    field:OrderField! = "popularity"
+    direction: OrderDirection! = "asc"
 }
 
 enum OrderField{
-    DISCOUNT
-    POPULARITY
-    PRICE
-    WEIGHT_COUNT
-    ORDERS
+    discount
+    price
+    weight
+    orders
 }
 
 enum OrderDirection{
-    ASC
-    DES
+    asc
+    desc
 }
 
 type Query{
     product(id:ID!):Product
-    productsByIds(ids:[ID]!):[Product]!
-    products(filter:ProductByDiscoundFindInput):[Product]!
+    productsByIds(ids:[ID]!, order: OrderBy):[Product]!
+    products(filter:ProductByDiscoundFindInput, order:OrderBy):[Product]!
 }
 
 type Mutation{

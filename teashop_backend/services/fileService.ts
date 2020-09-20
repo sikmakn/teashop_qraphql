@@ -1,6 +1,6 @@
 import File from '../db/sequelizeModels/File';
 import connection from '../db/connection';
-import {IFile} from "../db/types/IFile";
+import {IFile} from "../modelTypes/IFile";
 
 const fileRepository = connection.getRepository(File);
 

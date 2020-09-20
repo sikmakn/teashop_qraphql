@@ -1,7 +1,7 @@
 import Product from "../db/sequelizeModels/Product";
 import File from "../db/sequelizeModels/File";
 import connection from '../db/connection';
-import {IProduct, IProductBasic} from "../db/types/IProduct";
+import {IProduct, IProductBasic} from "../modelTypes/IProduct";
 
 const productRepository = connection.getRepository(Product);
 const fileRepository = connection.getRepository(File);

@@ -1,7 +1,7 @@
 import {IProductType} from "./IProductType";
 import {IProductSubType} from "./IProductSubType";
 import {IFile} from "./IFile";
-import Order from "../sequelizeModels/Order";
+import Order from "../db/sequelizeModels/Order";
 import {IProductOrder} from "./IProductOrder";
 
 export interface IProductBasic {

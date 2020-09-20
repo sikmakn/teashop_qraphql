@@ -1,8 +1,8 @@
-import * as fileService from '../../services/fileService';
+import * as fileService from '../../../services/fileService';
 import joinMonster from "join-monster";
-import {query} from "../../db/connection";
+import {query} from "../../../db/connection";
 
-export const resolvers = {
+const resolvers = {
     Query: {
         file: async (root: any, args: any, ctx: any, info: any) =>
             await joinMonster(info, ctx,
@@ -21,3 +21,5 @@ export const resolvers = {
         },
     }
 };
+
+export default resolvers;
