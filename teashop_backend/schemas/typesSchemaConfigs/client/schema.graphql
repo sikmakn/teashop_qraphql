@@ -1,0 +1,29 @@
+#import Client from "../../graphqlTypes/client.graphql"
+
+input ClientCreateInput{
+    phoneNumber: String!
+    email: String
+}
+
+input ClientUpdateInput{
+    id: ID!
+    phoneNumber: String!
+    email: String
+}
+
+input ClientFindInput{
+    id:ID
+    phoneNumber:String
+    email:String
+}
+
+type Query{
+    client(filter:ClientFindInput!):Client
+    clients:[Client]!
+}
+
+type Mutation{
+    addClient(client: ClientCreateInput!):Client!
+    updateClient(client:ClientUpdateInput!):Boolean!
+    removeClient(id:ID!):Boolean!
+}

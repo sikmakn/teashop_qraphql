@@ -3,6 +3,6 @@
 type Client{
     id:ID!
     phoneNumber:String!
-    email: String!
+    email: String
     orders: [Order]!
 }
