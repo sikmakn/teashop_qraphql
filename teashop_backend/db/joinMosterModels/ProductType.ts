@@ -9,6 +9,12 @@ const model = {
             name: {
                 sqlColumn: 'name'
             },
+            products: {
+                sqlBatch: {
+                    thisKey: 'productTypeId',
+                    parentKey: 'id'
+                }
+            },
             productSubTypes: {
                 sqlJoin: (productTypeTable: any, productSubTypeTable: any) =>
                     `${productTypeTable}.id = ${productSubTypeTable}.productTypeId`

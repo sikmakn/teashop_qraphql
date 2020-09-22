@@ -1,19 +1,15 @@
 #import Product from "../../graphqlTypes/product.graphql"
-
-input FileCreateInputForProduct{
-    mimetype: String!
-    filename: String!
-    size: Int!
-}
+scalar Upload
 
 input ProductCreateInput{
+    shortDescription: String!
     price: Float!
     weight: Int!
     discount: Int
     effect: String
     packaging: String
     taste: String
-    files: [FileCreateInputForProduct!]!
+    files: [Upload!]
     productTypeId: String
     productSubTypeId: String
 }

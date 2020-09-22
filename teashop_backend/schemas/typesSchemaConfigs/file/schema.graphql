@@ -1,18 +1,11 @@
 #import File from "../../graphqlTypes/file.graphql"
 
-input FileCreateInput{
-    mimetype: String!
-    filename: String!
-    size: Int!
-    productId: ID!
-}
-
 type Query{
     file(id:ID):File
-    filesByProductId(productId: ID):[File]!
+    filesByProductId(productId: ID!):[File]!
 }
 
 type Mutation{
-    addFile(file:FileCreateInput):File!
-    removeFile(id:ID):Boolean!
+    addFile(productId: ID!, file:Upload!):File!
+    removeFile(id:ID!):Boolean!
 }

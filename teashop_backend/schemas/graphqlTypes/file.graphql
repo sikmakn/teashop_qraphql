@@ -7,5 +7,5 @@ type File{
     size: Int!
     productId: ID!
     product: Product
-    data:[String!]!
+    data:String!
 }
