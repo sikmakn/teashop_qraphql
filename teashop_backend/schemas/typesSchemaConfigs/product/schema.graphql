@@ -1,4 +1,5 @@
 #import Product from "../../graphqlTypes/product.graphql"
+
 scalar Upload
 
 input ProductCreateInput{

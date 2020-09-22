@@ -1,5 +1,7 @@
 #import File from "../../graphqlTypes/file.graphql"
 
+scalar Upload
+
 type Query{
     file(id:ID):File
     filesByProductId(productId: ID!):[File]!
