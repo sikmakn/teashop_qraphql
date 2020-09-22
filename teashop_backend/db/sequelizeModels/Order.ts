@@ -1,5 +1,6 @@
-import {BelongsToMany, Column, DataType, Model, PrimaryKey, Table} from 'sequelize-typescript';
+import {BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, PrimaryKey, Table} from 'sequelize-typescript';
 import Product from "./Product";
+import Client from "./Client";
 import ProductOrder from "./ProductOrder";
 
 enum OrderStatus {
@@ -26,6 +27,9 @@ class Order extends Model<Order> {
     price!: number;
 
     @Column(DataType.DATE)
+    createdAt?: Date;
+
+    @Column(DataType.DATE)
     closedAt?: Date;
 
     @Column({
@@ -37,7 +41,13 @@ class Order extends Model<Order> {
     status!: OrderStatus;
 
     @BelongsToMany(() => Product, () => ProductOrder)
-    products!: Array<Product & { ProductOrder: ProductOrder }>
+    products!: Array<Product & { ProductOrder: ProductOrder }>;
+
+    @ForeignKey(() => Client)
+    clientId!: string;
+
+    @BelongsTo(() => Client)
+    client!: Client;
 }
 
 export default Order;

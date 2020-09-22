@@ -1,0 +1,8 @@
+#import Order from "./order.graphql"
+
+type Client{
+    id:ID!
+    phoneNumber:String!
+    email: String!
+    orders: [Order]!
+}

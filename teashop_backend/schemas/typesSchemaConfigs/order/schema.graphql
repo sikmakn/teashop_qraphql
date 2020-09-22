@@ -1,0 +1,55 @@
+#import Order from "../../graphqlTypes/order.graphql"
+#import OrderStatus from "../../graphqlTypes/order.graphql"
+
+scalar Date
+
+input ProductOrderInput{
+    weight: Int!
+    price: Int!
+    productId:ID!
+    discount:Int!
+}
+
+input OrderCreateInput{
+    status: OrderStatus!
+    userId:ID!
+    productOrders:[ProductOrderInput!]!
+}
+
+input UpdateOrderInput{
+    id: ID!
+    status: OrderStatus!
+}
+
+input OrderFilterInput{
+    status: OrderStatus
+    createdFrom: Date
+    createdTo: Date
+    userId: ID
+}
+
+input OrdersOrderBy{
+    field:OrdersOrderField! = "popularity"
+    direction: OrderDirection! = "asc"
+}
+
+enum OrdersOrderField{
+    createdAt
+    closedAt
+}
+
+enum OrderDirection{
+    asc
+    desc
+}
+
+type Query{
+    order(id:ID!):Order
+    orders(filter:OrderFilterInput, orderBy:OrdersOrderBy):[Order]!
+}
+
+type Mutation{
+    addOrder(order: OrderCreateInput!):Order!
+    updateOrder(order:UpdateOrderInput!):Boolean!
+    removeOrder(id:ID!):Boolean!
+}

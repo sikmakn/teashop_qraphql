@@ -1,14 +1,14 @@
 import {IProductOrder} from "./IProductOrder";
 
-export interface IOrder extends IOrderBasic{
+export interface IOrderCreate{
+    userId: string
+    status: OrderStatus
     productOrders: IProductOrder[]
 }
 
-export interface IOrderBasic {
-    price: number
+export interface IOrderUpdate {
+    id:string
     status: OrderStatus
-    createdAt: Date
-    closedAt: Date
 }
 
 export enum OrderStatus {

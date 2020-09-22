@@ -31,12 +31,12 @@ input ProductByDiscoundFindInput{
     productSubTypeId:ID
 }
 
-input OrderBy{
-    field:OrderField! = "popularity"
+input ProductOrderBy{
+    field:ProductOrderField! = "popularity"
     direction: OrderDirection! = "asc"
 }
 
-enum OrderField{
+enum ProductOrderField{
     discount
     price
     weight
@@ -50,8 +50,8 @@ enum OrderDirection{
 
 type Query{
     product(id:ID!):Product
-    productsByIds(ids:[ID]!, order: OrderBy):[Product]!
-    products(filter:ProductByDiscoundFindInput, order:OrderBy):[Product]!
+    productsByIds(ids:[ID]!, order: ProductOrderBy):[Product]!
+    products(filter:ProductByDiscoundFindInput, order:ProductOrderBy):[Product]!
 }
 
 type Mutation{

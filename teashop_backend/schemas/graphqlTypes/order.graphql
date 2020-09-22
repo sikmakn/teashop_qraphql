@@ -1,6 +1,8 @@
 #import ProductOrder from "productOrder.graphql"
+#import Client from "client.graphql"
 
 scalar Date
+
 enum OrderStatus{
     ACTIVE
     NOT_CONFIRMED
@@ -14,4 +16,6 @@ type Order{
     closedAt: Date
     status: OrderStatus!
     productOrders: [ProductOrder!]!
+    clientId:ID!
+    client:Client!
 }
