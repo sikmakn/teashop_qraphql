@@ -22,7 +22,7 @@ sequelize.addModels([
     Order,
     Product,
     ProductOrder,
-    Client
+    Client,
 ]);
 
 export async function query(sql: string) {

@@ -17,14 +17,14 @@ const model = {
             },
             product: {
                 sqlBatch: {
-                    thisKey: 'productId',
-                    parentKey: 'id'
+                    thisKey: 'id',
+                    parentKey: 'productId'
                 }
             },
             order:{
                 sqlBatch: {
-                    thisKey: 'orderId',
-                    parentKey: 'id'
+                    thisKey: 'id',
+                    parentKey: 'orderId'
                 }
             }
         }

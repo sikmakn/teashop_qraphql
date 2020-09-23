@@ -15,17 +15,16 @@ const model = {
             status: {
                 sqlColumn: 'status'
             },
+            clientId: {
+                sqlColumn: 'clientId'
+            },
+            client: {
+                sqlJoin: (orderTable: any, clientTable: any) =>
+                    `${orderTable}.clientId = ${clientTable}.id`
+            },
             productOrders: {
-                junction: {
-                    sqlTable: 'productOrder',
-                    uniqueKey: ['productId', 'orderId'],
-                    sqlBatch: {
-                        thisKey: 'orderId',
-                        parentKey: 'id',
-                        sqlJoin: (productOrderTable: any, productTable: any) =>
-                            `${productOrderTable}.productId = ${productTable}.id`
-                    }
-                }
+                sqlJoin: (orderTable: any, productOrderTable: any) =>
+                    `${orderTable}.id = ${productOrderTable}.orderId`
             }
         }
     }

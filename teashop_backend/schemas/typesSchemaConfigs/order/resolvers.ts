@@ -14,12 +14,12 @@ const resolvers = {
                 {dialect: "mysql"}),
     },
     Mutation: {
-        addOrder: async (root: any, {product}: any) => await orderService.create(product),
-        updateOrder: async (root: any, {productBasic}: any) => {
-            const result = await orderService.updateBasic(productBasic);
+        addOrder: async (root: any, {order}: any) => await orderService.create(order),
+        updateOrder: async (root: any, {orderBasic}: any) => {
+            const result = await orderService.updateBasic(orderBasic);
             return result[0] !== 0;
         },
-        removeOrder: async (root: any, {id}: { id: string }) => {
+        removeOrder: async (root: any, {id}: any) => {
             const result = await orderService.remove(id);
             return result !== 0;
         },

@@ -1,6 +1,6 @@
 const model = {
     Client:{
-        sqlTable: `${process.env.DB_NAME}.files`,
+        sqlTable: `${process.env.DB_NAME}.clients`,
         uniqueKey: 'id',
         fields:{
             id: {

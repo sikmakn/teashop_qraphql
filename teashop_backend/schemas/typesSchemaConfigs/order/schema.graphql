@@ -5,14 +5,12 @@ scalar Date
 
 input ProductOrderInput{
     weight: Int!
-    price: Int!
     productId:ID!
-    discount:Int!
 }
 
 input OrderCreateInput{
     status: OrderStatus!
-    userId:ID!
+    clientId:ID!
     productOrders:[ProductOrderInput!]!
 }
 
@@ -50,6 +48,6 @@ type Query{
 
 type Mutation{
     addOrder(order: OrderCreateInput!):Order!
-    updateOrder(order:UpdateOrderInput!):Boolean!
+    updateOrder(orderBasic:UpdateOrderInput!):Boolean!
     removeOrder(id:ID!):Boolean!
 }

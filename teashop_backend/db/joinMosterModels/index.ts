@@ -4,6 +4,7 @@ import File from './File';
 import Product from "./Product";
 import Order from './Order';
 import ProductOrder from './ProductOrder';
+import Client from "./Client";
 
 const model = {
     ...ProductType,
@@ -11,7 +12,8 @@ const model = {
     ...ProductOrder,
     ...File,
     ...Product,
-    ...Order
+    ...Order,
+    ...Client,
 };
 
 export default model;

@@ -2,7 +2,7 @@ import {Column, DataType, HasMany, Model, PrimaryKey, Table} from 'sequelize-typ
 import Order from "./Order";
 
 @Table
-class User extends Model<User> {
+class Client extends Model<Client> {
     @PrimaryKey
     @Column({
         type: DataType.UUID,
@@ -26,4 +26,4 @@ class User extends Model<User> {
     orders!: [Order];
 }
 
-export default User;
+export default Client;

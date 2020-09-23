@@ -47,16 +47,8 @@ const model = {
                     `${productTable}.id = ${fileTable}.productId`
             },
             productOrders: {
-                junction: {
-                    sqlTable: 'productOrder',
-                    uniqueKey: ['productId', 'orderId'],
-                    sqlBatch: {
-                        thisKey: 'productId',
-                        parentKey: 'id',
-                        sqlJoin: (productOrderTable: any, orderTable: any) =>
-                            `${productOrderTable}.orderId = ${orderTable}.id`
-                    }
-                }
+                sqlJoin: (productTable: any, productOrderTable: any) =>
+                    `${productTable}.id = ${productOrderTable}.productId`
             }
         }
     }
