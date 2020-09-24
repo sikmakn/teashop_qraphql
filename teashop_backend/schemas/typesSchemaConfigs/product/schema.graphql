@@ -1,0 +1,61 @@
+#import Product from "../../graphqlTypes/product.graphql"
+
+scalar Upload
+
+input ProductCreateInput{
+    shortDescription: String!
+    price: Float!
+    weight: Int!
+    discount: Int
+    effect: String
+    packaging: String
+    taste: String
+    files: [Upload!]
+    productTypeId: String
+    productSubTypeId: String
+}
+input UpdateProductInput{
+    id:ID
+    price: Float!
+    weight: Int!
+    discount: Int
+    effect: String
+    packaging: String
+    taste: String
+    productTypeId: String
+    productSubTypeId: String
+}
+
+input ProductByDiscoundFindInput{
+    productTypeId:ID
+    productSubTypeId:ID
+}
+
+input ProductOrderBy{
+    field:ProductOrderField! = "popularity"
+    direction: OrderDirection! = "asc"
+}
+
+enum ProductOrderField{
+    discount
+    price
+    weight
+    orders
+}
+
+enum OrderDirection{
+    asc
+    desc
+}
+
+type Query{
+    product(id:ID!):Product
+    productsByIds(ids:[ID]!, order: ProductOrderBy):[Product]!
+    products(filter:ProductByDiscoundFindInput, order:ProductOrderBy):[Product]!
+}
+
+type Mutation{
+    addProduct(product:ProductCreateInput!):Product!
+    updateProduct(product:UpdateProductInput!):Boolean!
+    removeProduct(id:ID!):Boolean!
+}

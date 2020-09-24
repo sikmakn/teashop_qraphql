@@ -1,0 +1,23 @@
+#import ProductSubType from "../../graphqlTypes/productSubType.graphql"
+
+input ProductSubTypeInput{
+    name:String!
+    productTypeId:ID!
+}
+
+input ProductSubTypeBasicInput{
+    id:ID!
+    name:String!
+}
+
+type Query{
+    productSubTypes(typeId:ID):[ProductSubType]!
+    productSubType(id:ID!):ProductSubType
+}
+
+type Mutation{
+    addProductSubType(productSubType: ProductSubTypeInput!):ProductSubType!
+    bulkProductSubTypes(productSubTypes: [ProductSubTypeInput!]!):[ProductSubType!]
+    updateProductSubType(productSubType:ProductSubTypeBasicInput!):ProductSubType!
+    removeProductSubType(id:ID!):Boolean!
+}

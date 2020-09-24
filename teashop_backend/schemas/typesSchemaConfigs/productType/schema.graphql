@@ -1,0 +1,27 @@
+#import ProductType from "../../graphqlTypes/productType.graphql"
+#import ProductSubType from "../../graphqlTypes/productSubType.graphql"
+
+input ProductTypeBasicInput{
+    id:ID!
+    name:String!
+}
+
+input ProductSubTypeInputCreateForType{
+    name:String!
+}
+
+input ProductTypeInputCreate {
+    name:String!
+    productSubTypes:[ProductSubTypeInputCreateForType]
+}
+
+type Query{
+    productType(id:ID!):ProductType!
+    productTypes: [ProductType]!
+}
+
+type Mutation{
+    addProductType(productType: ProductTypeInputCreate!):ProductType!
+    updateProductType(productType:ProductTypeBasicInput!):ProductType!
+    removeProductType(id:ID!):Boolean!
+}
