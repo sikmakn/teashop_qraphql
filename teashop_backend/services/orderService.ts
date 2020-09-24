@@ -4,6 +4,7 @@ import connection from '../db/connection';
 import {IOrderCreate, IOrderUpdate, OrderStatus} from "../modelTypes/IOrder";
 import Product from "../db/sequelizeModels/Product";
 import {Op} from "sequelize";
+import {calculatePrice} from "../helpers/calculatePrice";
 
 const orderRepository = connection.getRepository(Order);
 const productOrderRepository = connection.getRepository(ProductOrder);
@@ -36,7 +37,7 @@ export async function create({productOrders: productOrdersBasic, ...orderFields}
             return {
                 ...productOrder,
                 discount: discount,
-                price: price * productOrder.weight * (discount ? discount / 100 : 1)
+                price: calculatePrice(productOrder.weight, price, discount)
             };
         });
     }

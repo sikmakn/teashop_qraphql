@@ -1,0 +1,29 @@
+#import ProductOrder from "../../graphqlTypes/productOrder.graphql"
+
+input ProductOrderCreateInput{
+    orderId: ID!
+    productId: ID!
+    weight: Int!
+}
+
+input ProductOrderUpdateInput{
+    orderId: ID!
+    productId: ID!
+    weight: Int!
+}
+
+input ProductOrderRemoveInput{
+    orderId: ID!
+    productId: ID!
+}
+
+type Query{
+    productOrderByOrderId(orderId: ID!):ProductOrder
+    productOrders:[ProductOrder]!
+}
+
+type Mutation{
+    addProductOrder(productOrder: ProductOrderCreateInput!): ProductOrder!
+    updateProductOrder(productOrder: ProductOrderUpdateInput!): Boolean!
+    removeProductOrder(primaryKey: ProductOrderRemoveInput!): Boolean!
+}
