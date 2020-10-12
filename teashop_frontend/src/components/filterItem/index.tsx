@@ -8,13 +8,13 @@ export interface FilterItemParams extends FilterItemData {
 }
 
 export interface FilterItemData {
-    _id: string
+    id: string
     name: string
 }
 
 const FilterItem: React.FC<FilterItemParams> =
     ({
-         _id,
+         id,
          name,
          subspecies,
          selectedIds,
@@ -25,10 +25,10 @@ const FilterItem: React.FC<FilterItemParams> =
 
         useEffect(()=>{
             if (isAll) {
-                const _idsSet = new Set([...selectedIds, ...subspecies.map(({_id}) => _id)]);
+                const _idsSet = new Set([...selectedIds, ...subspecies.map(({id}) => id)]);
                 return setSelected(Array.from(_idsSet));
             }
-            setSelected(selectedIds.filter(id => !subspecies.some(({_id}) => id === _id)))
+            setSelected(selectedIds.filter(id => !subspecies.some(({id}) => id === id)))
         }, [isAll]);
 
         function isContainedInSelected(_id: string) {
@@ -74,7 +74,7 @@ const FilterItem: React.FC<FilterItemParams> =
                 </div>
                 <div className={styles.subItemsContainer} style={{display: isVisible ? 'block' : 'none'}}>
                     {getSubItem('Выбрать все', 'all')}
-                    {subspecies.map(({_id, name}) => getSubItem(name, _id))}
+                    {subspecies.map(({id, name}) => getSubItem(name, id))}
                 </div>
             </div>
         );

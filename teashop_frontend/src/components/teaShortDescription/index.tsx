@@ -6,7 +6,7 @@ export interface TeaShortDescriptionParams {
 }
 
 const TeaShortDescription: React.FC<TeaShortDescriptionParams> = ({description}) => (
-    <div className={styles.description}>
+    <div className={styles.shortDescription}>
         <div>{description}</div>
     </div>
 );

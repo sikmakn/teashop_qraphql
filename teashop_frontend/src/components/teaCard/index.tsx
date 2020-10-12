@@ -12,9 +12,9 @@ export interface TeaCardParams extends ShortTea {
 
 const TeaCard: React.FC<TeaCardParams> =
     ({
-         _id,
+         id,
          imgSrc,
-         description,
+         shortDescription,
          price,
          discount,
          weight,
@@ -29,8 +29,8 @@ const TeaCard: React.FC<TeaCardParams> =
         };
 
         return (
-            <Link to={`${PATHS.PRODUCT}/${_id}`} className={styles.cardContainer} style={{width: isCart ? 285 : 217}}>
-                <img src={imgSrc} alt={description}/>
+            <Link to={`${PATHS.PRODUCT}/${id}`} className={styles.cardContainer} style={{width: isCart ? 285 : 217}}>
+                <img src={imgSrc} alt={shortDescription}/>
                 <div className={styles.commonInfoContainer}>
                     <PriceCard price={price} discount={discount} weight={weight}/>
                     {isCart && <Link
@@ -45,7 +45,7 @@ const TeaCard: React.FC<TeaCardParams> =
                     </Link>
                     }
                 </div>
-                <TeaShortDescription description={description}/>
+                <TeaShortDescription description={shortDescription}/>
             </Link>
         );
     };

@@ -15,27 +15,27 @@ export interface FilterData {
 const Filter: React.FC<FilterParams> = ({selectedIds, setSelectedIds}) => {
     const items = [
         {
-            _id: 'id',
+            id: 'id',
             name: 'Улун',
             subspecies: [
                 {
-                    _id: 'id',
+                    id: 'id',
                     name: 'белый'
                 }
             ]
         },
         {
-            _id: 'id2',
+            id: 'id2',
             name: 'Пуэр',
             subspecies: [
                 {
-                    _id: 'id',
+                    id: 'id',
                     name: 'белый'
                 }
             ]
         },
         {
-            _id: 'id3',
+            id: 'id3',
             name: 'Хэй Ча(черный)',
             subspecies: []
         }

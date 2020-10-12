@@ -1,8 +1,8 @@
 export interface ShortTea {
-    _id: string
+    id: string
     imgSrc: string
     price: number
     discount: number
-    description: string
+    shortDescription: string
     weight: number
 }

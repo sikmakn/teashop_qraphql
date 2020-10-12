@@ -9,18 +9,18 @@ export interface CardForCartParams extends ShortTea {
 
 const CardForCart: React.FC<CardForCartParams> =
     ({
-         _id,
+         id,
          imgSrc,
          price,
          discount,
-         description,
+         shortDescription,
          weight
      }) => (
         <div className={styles.cardContainer}>
             <img src={imgSrc} alt=""/>
             <div className={styles.descriptionContainer}>
                 <PriceCard price={price} discount={discount} weight={weight}/>
-                <TeaShortDescription description={description}/>
+                <TeaShortDescription description={shortDescription}/>
             </div>
             <span className={styles.weight}><input type="text" value={weight}/>гр</span>
             <span className={styles.price}>{weight}р</span>

@@ -4,7 +4,7 @@ import Gallery from "../gallery";
 
 export interface DetailedProductParams {
     imgs: string[]
-    description: string
+    shortDescription: string
     article: string
     price: number
     discount: number
@@ -18,7 +18,7 @@ export interface DetailedProductParams {
 const DetailedProduct: React.FC<DetailedProductParams> =
     ({
          imgs,
-         description,
+         shortDescription,
          article,
          price,
          discount,
@@ -45,7 +45,7 @@ const DetailedProduct: React.FC<DetailedProductParams> =
             <div className={styles.productContainer}>
                 <Gallery imgPaths={imgs}/>
                 <div className={styles.productInfoContainer}>
-                    <h1>{description}</h1>
+                    <h1>{shortDescription}</h1>
                     <div className={styles.article}>Артикул <span>{article}</span></div>
                     <div className={styles.priceContainer}>
                         <span className={styles.realPrice}>{realPrice}р</span>

@@ -9,7 +9,7 @@ export interface CardsListParams {
 const CardsList:React.FC<CardsListParams> = ({teaInfos})=>{
   return (
       <div className={styles.cardContainer}>
-          {teaInfos.map(params => <TeaCard {...params} key={params._id} isCart={true}/>)}
+          {teaInfos.map(params => <TeaCard {...params} key={params.id} isCart={true}/>)}
       </div>
   )
 };

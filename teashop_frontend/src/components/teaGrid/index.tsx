@@ -8,7 +8,7 @@ export interface TeaGridParams {
 
 const TeaGrid: React.FC<TeaGridParams> = ({teaInfos}) => (
     <div className={styles.gridContainer}>
-        {teaInfos.map((params) => <div><TeaCard key={params._id} {...params} isCart={true}/></div>)}
+        {teaInfos.map((params) => <div><TeaCard key={params.id} {...params} isCart={true}/></div>)}
     </div>
 );
 

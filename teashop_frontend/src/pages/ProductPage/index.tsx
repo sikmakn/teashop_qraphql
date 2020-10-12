@@ -13,39 +13,39 @@ export interface ProductPageParams {
 const ProductPage: React.FC<ProductPageParams> = ({match}) => {
     const teaInfos = [
         {
-            _id: 'id',
+            id: 'id',
             imgSrc: `${process.env.PUBLIC_URL}/photo.jpg`,
             oldPrice: 220,
             discount: 0.45,
-            description: 'Да Хун Пао Шу Сян scfsdfsd fdefw ewfew saasssf ' +
+            shortDescription: 'Да Хун Пао Шу Сян scfsdfsd fdefw ewfew saasssf ' +
                 'fewfыф ef wef wefwe f wefwe fwef wefwefwefwefwef',
             price: 160,
             weight: 100,
         },
         {
-            _id: 'id2',
+            id: 'id2',
             imgSrc: `${process.env.PUBLIC_URL}/photo.jpg`,
             oldPrice: 220,
             discount: 0.45,
-            description: 'Да Хун Пао Шу Сян',
+            shortDescription: 'Да Хун Пао Шу Сян',
             price: 160,
             weight: 100,
         },
         {
-            _id: 'id3',
+            id: 'id3',
             imgSrc: `${process.env.PUBLIC_URL}/photo.jpg`,
             oldPrice: 220,
             discount: 0.45,
-            description: 'Да Хун Пао Шу Сян',
+            shortDescription: 'Да Хун Пао Шу Сян',
             price: 160,
             weight: 100,
         },
         {
-            _id: 'id4',
+            id: 'id4',
             imgSrc: `${process.env.PUBLIC_URL}/photo.jpg`,
             oldPrice: 220,
             discount: 0.45,
-            description: 'Да Хун Пао Шу Сян',
+            shortDescription: 'Да Хун Пао Шу Сян',
             price: 160,
             weight: 100,
         }
@@ -58,7 +58,7 @@ const ProductPage: React.FC<ProductPageParams> = ({match}) => {
             `${process.env.PUBLIC_URL}/photo.jpg`,
             `${process.env.PUBLIC_URL}/photo.jpg`
         ],
-        description: 'Шу «Айлаошань 0919», 100г, 2016 г. Леопард из серии «Буфан» от Teashop.by',
+        shortDescription: 'Шу «Айлаошань 0919», 100г, 2016 г. Леопард из серии «Буфан» от Teashop.by',
         article: '005053',
         price: 200,
         discount: 0.45,
