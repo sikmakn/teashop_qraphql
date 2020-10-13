@@ -16,7 +16,6 @@ const PRODUCTS = gql`
             discount
         }
     }
-
 `;
 
 const Home: React.FC = () => {

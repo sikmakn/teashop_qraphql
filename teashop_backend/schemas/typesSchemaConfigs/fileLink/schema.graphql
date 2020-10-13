@@ -1,0 +1,13 @@
+#import FileLink from "../../graphqlTypes/fileLink.graphql"
+
+scalar Upload
+
+type Query{
+    file(id:ID):FileLink
+    filesByProductId(productId: ID!):[FileLink]!
+}
+
+type Mutation{
+    addFile(productId: ID!, file:Upload!):FileLink!
+    removeFile(id:ID!):Boolean!
+}

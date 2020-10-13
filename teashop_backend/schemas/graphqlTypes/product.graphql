@@ -1,6 +1,6 @@
 #import ProductType from "./productType.graphql"
 #import ProductSubType from "./productSubType.graphql"
-#import File from "./file.graphql"
+#import FileLink from "./fileLink.graphql"
 #import ProductOrder from "./productOrder.graphql"
 
 type Product{
@@ -12,7 +12,7 @@ type Product{
     effect: String
     packaging: String
     taste: String
-    files: [File!]!
+    files: [FileLink!]!
     productOrders: [ProductOrder]!
 
     productTypeId: String

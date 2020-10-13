@@ -1,22 +1,13 @@
 const model = {
-    File: {
-        sqlTable: `${process.env.DB_NAME}.files`,
+    FileLink: {
+        sqlTable: `${process.env.DB_NAME}.filelinks`,
         uniqueKey: 'id',
         fields: {
             id: {
                 sqlColumn: 'id'
             },
-            data: {
-                sqlColumn: 'data'
-            },
-            mimetype: {
-                sqlColumn: 'mimetype'
-            },
-            size: {
-                sqlColumn: 'size'
-            },
-            filename: {
-                sqlColumn: 'filename'
+            link: {
+                sqlColumn: 'link'
             },
             productId: {
                 sqlColumn: 'productId'

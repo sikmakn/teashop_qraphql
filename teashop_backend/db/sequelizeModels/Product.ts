@@ -13,7 +13,7 @@ import ProductType from "./ProductType";
 import ProductSubType from "./ProductSubType";
 import ProductOrder from "./ProductOrder";
 import Order from "./Order";
-import File from "./File";
+import FileLink from "./FileLink";
 
 @Table
 class Product extends Model<Product> {
@@ -61,8 +61,8 @@ class Product extends Model<Product> {
     @Column(DataType.STRING)
     taste?: string;
 
-    @HasMany(() => File, {onDelete: "cascade"})
-    files!: [File];
+    @HasMany(() => FileLink, {onDelete: "cascade"})
+    files!: [FileLink];
 
     @ForeignKey(() => ProductType)
     productTypeId?: string;

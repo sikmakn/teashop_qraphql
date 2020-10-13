@@ -16,7 +16,7 @@ export default async function () {
     return stitchSchemas({schemas});
 }
 
-async function getAllConfiguredSchemas(directionPath:string): Promise<SchemaLikeObject[]> {
+async function getAllConfiguredSchemas(directionPath: string): Promise<SchemaLikeObject[]> {
     const schemaConfigsDir = join(directionPath, './typesSchemaConfigs');
     const subDirs = await getSubDirectories(schemaConfigsDir);
     const schemasPromises = subDirs.map((dirName: string) =>

@@ -1,11 +1,8 @@
 #import Product from "./product.graphql"
 
-type File{
+type FileLink{
     id:ID!
-    mimetype: String!
-    filename: String!
-    size: Int!
+    link: String!
     productId: ID!
     product: Product
-    data:String!
 }

@@ -1,11 +1,8 @@
 import {IProduct} from "./IProduct";
 
-export interface IFile {
+export interface IFileLink {
     id?: string
-    type: string
-    size: number
-    name: string
-    data: Blob
+    link: string
     productId?: string
     product?: IProduct
 }

@@ -1,4 +1,4 @@
-import * as fileService from '../../../services/fileService';
+import * as fileService from '../../../services/fileLinkService';
 import joinMonster from "join-monster";
 import {query} from "../../../db/connection";
 

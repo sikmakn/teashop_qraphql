@@ -1,7 +1,7 @@
 import {Sequelize} from 'sequelize-typescript';
 import ProductType from "./sequelizeModels/ProductType";
 import ProductSubType from "./sequelizeModels/ProductSubType";
-import File from "./sequelizeModels/File";
+import FileLink from "./sequelizeModels/FileLink";
 import Order from "./sequelizeModels/Order";
 import Product from "./sequelizeModels/Product";
 import ProductOrder from "./sequelizeModels/ProductOrder";
@@ -18,7 +18,7 @@ const sequelize = new Sequelize(DB_NAME as string, MYSQL_USER as string, MYSQL_P
 sequelize.addModels([
     ProductType,
     ProductSubType,
-    File,
+    FileLink,
     Order,
     Product,
     ProductOrder,
